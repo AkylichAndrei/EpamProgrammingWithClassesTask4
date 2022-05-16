@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 //https://www.geeksforgeeks.org/association-composition-aggregation-java/
 //Reader Ticket 
-//Book: id, название, автор(ы), издательство, год издания, количество страниц, цена, тип переплета.
-//Найти и вывести:
-//a) список книг заданного автора;
-//b) список книг, выпущенных заданным издательством;
-//c) список книг, выпущенных после заданного года.
+//Book: id, РЅР°Р·РІР°РЅРёРµ, Р°РІС‚РѕСЂ(С‹), РёР·РґР°С‚РµР»СЊСЃС‚РІРѕ, РіРѕРґ РёР·РґР°РЅРёСЏ, РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†, С†РµРЅР°, С‚РёРї РїРµСЂРµРїР»РµС‚Р°.
+//РќР°Р№С‚Рё Рё РІС‹РІРµСЃС‚Рё:
+//a) СЃРїРёСЃРѕРє РєРЅРёРі Р·Р°РґР°РЅРЅРѕРіРѕ Р°РІС‚РѕСЂР°;
+//b) СЃРїРёСЃРѕРє РєРЅРёРі, РІС‹РїСѓС‰РµРЅРЅС‹С… Р·Р°РґР°РЅРЅС‹Рј РёР·РґР°С‚РµР»СЊСЃС‚РІРѕРј;
+//c) СЃРїРёСЃРѕРє РєРЅРёРі, РІС‹РїСѓС‰РµРЅРЅС‹С… РїРѕСЃР»Рµ Р·Р°РґР°РЅРЅРѕРіРѕ РіРѕРґР°.
  class LibraryCard  
 { 
     private int idCard;
-    private String name;//имя владельца
+    private String name;//РёРјСЏ РІР»Р°РґРµР»СЊС†Р°
 	 private List<Book> books;
       
     LibraryCard (int iC, String name, List<Book> books) 
@@ -21,30 +21,22 @@ import java.util.List;
    	 this.setName(name);
         this.books = books;  
     } 
-      
     public List<Book> getBooks()  
 	    { 
 	        return books; 
 	    }
-
 	public int getIdCard() {
 		return idCard;
 	}
-
 	public void setIdCard(int idCard) {
 		this.idCard = idCard;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	} 
-
-  
-	 
 }
 public class Book {
 	//author (s), publisher, year of publication, number of pages, price, type of binding
@@ -70,38 +62,33 @@ public class Book {
 		public String toString() {
 			
 				 return "{" +
-	            "Айди ='" + id + '\'' +
-	            ", Название книги =" + name +
-	            ", Автор ='" + author + '\'' +
-	            ", Издательство ='" + publisher + '\'' +
-	            ", Год издания ='" + yearOfPublication + '\'' +
-	            ", количество страниц='" + numberOfPages + '\'' +
-	            ", цена ='" + price + '\'' +
-	           ",  тип переплета ='" + typeOfBinding + '\'' +
+	            "РђР№РґРё ='" + id + '\'' +
+	            ", РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё =" + name +
+	            ", РђРІС‚РѕСЂ ='" + author + '\'' +
+	            ", РР·РґР°С‚РµР»СЊСЃС‚РІРѕ ='" + publisher + '\'' +
+	            ", Р“РѕРґ РёР·РґР°РЅРёСЏ ='" + yearOfPublication + '\'' +
+	            ", РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†='" + numberOfPages + '\'' +
+	            ", С†РµРЅР° ='" + price + '\'' +
+	           ",  С‚РёРї РїРµСЂРµРїР»РµС‚Р° ='" + typeOfBinding + '\'' +
 	            '}';
 				
 		}
-	
 	public static void main(String[] args) {
-		Book objBook = new Book(1001,"Гарри Поттер и философский камень","Джоан К. Роулинг","Издательство 1",1956,215,2000,"Твёрдый переплёт");
-		Book objBook1 = new Book(1002,"Гарри Поттер и тайная комната","Джоан К. Роулинг","Издательство 2",1957,225,2050,"Твёрдый переплёт");
-		Book objBook2 = new Book(1003,"Гарри Поттер и кубок огня","Джоан К. Роулинг","Издательство 1",1958,230,3000,"Твёрдый переплёт");
-		
-		Book objBook3 = new Book(1004,"Зелёная миля","Стивен кинг","Издательство 9",1959,240,4000,"Мягкий переплёт");
-		Book objBook4 = new Book(1005,"Граф Монте-Кристо","Александ Дюма","Издательство 9",1960,250,4000,"Мягкий  переплёт");
-		
-		Book objBook5 = new Book(1006,"Гарри Поттер и дары смерти Часть 1","Джоан К. Роулинг","Издательство 4",1970,260,3000,"Твёрдый переплёт");
-		Book objBook6 = new Book(1007,"Гарри Поттер и дары смерти Часть 2","Джоан К. Роулинг","Издательство 4",1980,270,6000,"Твёрдый переплёт");
-		//создаём список книг что бы занечти его в читательский билет
+		Book objBook = new Book(1001,"Р“Р°СЂСЂРё РџРѕС‚С‚РµСЂ Рё С„РёР»РѕСЃРѕС„СЃРєРёР№ РєР°РјРµРЅСЊ","Р”Р¶РѕР°РЅ Рљ. Р РѕСѓР»РёРЅРі","РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 1",1956,215,2000,"РўРІС‘СЂРґС‹Р№ РїРµСЂРµРїР»С‘С‚");
+		Book objBook1 = new Book(1002,"Р“Р°СЂСЂРё РџРѕС‚С‚РµСЂ Рё С‚Р°Р№РЅР°СЏ РєРѕРјРЅР°С‚Р°","Р”Р¶РѕР°РЅ Рљ. Р РѕСѓР»РёРЅРі","РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 2",1957,225,2050,"РўРІС‘СЂРґС‹Р№ РїРµСЂРµРїР»С‘С‚");
+		Book objBook2 = new Book(1003,"Р“Р°СЂСЂРё РџРѕС‚С‚РµСЂ Рё РєСѓР±РѕРє РѕРіРЅСЏ","Р”Р¶РѕР°РЅ Рљ. Р РѕСѓР»РёРЅРі","РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 1",1958,230,3000,"РўРІС‘СЂРґС‹Р№ РїРµСЂРµРїР»С‘С‚");
+		Book objBook3 = new Book(1004,"Р—РµР»С‘РЅР°СЏ РјРёР»СЏ","РЎС‚РёРІРµРЅ РєРёРЅРі","РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 9",1959,240,4000,"РњСЏРіРєРёР№ РїРµСЂРµРїР»С‘С‚");
+		Book objBook4 = new Book(1005,"Р“СЂР°С„ РњРѕРЅС‚Рµ-РљСЂРёСЃС‚Рѕ","РђР»РµРєСЃР°РЅРґ Р”СЋРјР°","РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 9",1960,250,4000,"РњСЏРіРєРёР№  РїРµСЂРµРїР»С‘С‚");
+		Book objBook5 = new Book(1006,"Р“Р°СЂСЂРё РџРѕС‚С‚РµСЂ Рё РґР°СЂС‹ СЃРјРµСЂС‚Рё Р§Р°СЃС‚СЊ 1","Р”Р¶РѕР°РЅ Рљ. Р РѕСѓР»РёРЅРі","РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 4",1970,260,3000,"РўРІС‘СЂРґС‹Р№ РїРµСЂРµРїР»С‘С‚");
+		Book objBook6 = new Book(1007,"Р“Р°СЂСЂРё РџРѕС‚С‚РµСЂ Рё РґР°СЂС‹ СЃРјРµСЂС‚Рё Р§Р°СЃС‚СЊ 2","Р”Р¶РѕР°РЅ Рљ. Р РѕСѓР»РёРЅРі","РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 4",1980,270,6000,"РўРІС‘СЂРґС‹Р№ РїРµСЂРµРїР»С‘С‚");
+		//СЃРѕР·РґР°С‘Рј СЃРїРёСЃРѕРє РєРЅРёРі С‡С‚Рѕ Р±С‹ Р·Р°РЅРµС‡С‚Рё РµРіРѕ РІ С‡РёС‚Р°С‚РµР»СЊСЃРєРёР№ Р±РёР»РµС‚
 		List <Book> bookList2 = new ArrayList<Book>();
 		bookList2.add(objBook);
 		bookList2.add(objBook1);
-		
-		LibraryCard objLibraryCard = new LibraryCard(101,"Андрей",bookList2);
-		 System.out.println("Выведем имя читателя :"+objLibraryCard.getName());
-		 System.out.println("Выведем Книги читателя :"+objLibraryCard.getBooks());
-		    
-		//создаём списки книг общий
+		LibraryCard objLibraryCard = new LibraryCard(101,"РђРЅРґСЂРµР№",bookList2);
+		 System.out.println("Р’С‹РІРµРґРµРј РёРјСЏ С‡РёС‚Р°С‚РµР»СЏ :"+objLibraryCard.getName());
+		 System.out.println("Р’С‹РІРµРґРµРј РљРЅРёРіРё С‡РёС‚Р°С‚РµР»СЏ :"+objLibraryCard.getBooks());
+		//СЃРѕР·РґР°С‘Рј СЃРїРёСЃРєРё РєРЅРёРі РѕР±С‰РёР№
 		 List <Book> bookList = new ArrayList<Book>();
 		 bookList.add(objBook);
 		 bookList.add(objBook1);
@@ -110,18 +97,17 @@ public class Book {
 		 bookList.add(objBook4);
 		 bookList.add(objBook5);
 		 bookList.add(objBook6);
-		 
-	    System.out.println("-------список книг автора Джоан К. Роулинг -----");
+	    System.out.println("-------СЃРїРёСЃРѕРє РєРЅРёРі Р°РІС‚РѕСЂР° Р”Р¶РѕР°РЅ Рљ. Р РѕСѓР»РёРЅРі -----");
 	    for (Book u : bookList) {
-	    	if(u.author=="Джоан К. Роулинг")
+	    	if(u.author=="Р”Р¶РѕР°РЅ Рљ. Р РѕСѓР»РёРЅРі")
 	        System.out.println(u);
 	    }
-	    System.out.println("-------список книг выпущенных Издательство 9 -----");
+	    System.out.println("-------СЃРїРёСЃРѕРє РєРЅРёРі РІС‹РїСѓС‰РµРЅРЅС‹С… РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 9 -----");
 	    for (Book u : bookList) {
-	    	if(u.publisher=="Издательство 9")
+	    	if(u.publisher=="РР·РґР°С‚РµР»СЊСЃС‚РІРѕ 9")
 	        System.out.println(u);
 	    }
-	    System.out.println("-------список книг выпущенных после 60-ых -----");
+	    System.out.println("-------СЃРїРёСЃРѕРє РєРЅРёРі РІС‹РїСѓС‰РµРЅРЅС‹С… РїРѕСЃР»Рµ 60-С‹С… -----");
 	    for (Book u : bookList) {
 	    	if(u.yearOfPublication>1960)
 	        System.out.println(u);
@@ -175,5 +161,4 @@ public class Book {
 	public void setTypeOfBinding(String typeOfBinding) {
 		this.typeOfBinding = typeOfBinding;
 	}
-
 }

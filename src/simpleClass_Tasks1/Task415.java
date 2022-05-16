@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// Туристические путевки. 
-// Сформировать набор предложений клиенту по выбору туристической путевки различного типа 
-// (отдых, экскурсии, лечение, шопинг, круиз и т. д.) для оптимального выбора.
-// Учитывать возможность выбора транспорта, питания и числа дней. 
-// Реализовать выбор и сортировку путевок.
+// РўСѓСЂРёСЃС‚РёС‡РµСЃРєРёРµ РїСѓС‚РµРІРєРё. 
+// РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РЅР°Р±РѕСЂ РїСЂРµРґР»РѕР¶РµРЅРёР№ РєР»РёРµРЅС‚Сѓ РїРѕ РІС‹Р±РѕСЂСѓ С‚СѓСЂРёСЃС‚РёС‡РµСЃРєРѕР№ РїСѓС‚РµРІРєРё СЂР°Р·Р»РёС‡РЅРѕРіРѕ С‚РёРїР° 
+// (РѕС‚РґС‹С…, СЌРєСЃРєСѓСЂСЃРёРё, Р»РµС‡РµРЅРёРµ, С€РѕРїРёРЅРі, РєСЂСѓРёР· Рё С‚. Рґ.) РґР»СЏ РѕРїС‚РёРјР°Р»СЊРЅРѕРіРѕ РІС‹Р±РѕСЂР°.
+// РЈС‡РёС‚С‹РІР°С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹Р±РѕСЂР° С‚СЂР°РЅСЃРїРѕСЂС‚Р°, РїРёС‚Р°РЅРёСЏ Рё С‡РёСЃР»Р° РґРЅРµР№. 
+// Р РµР°Р»РёР·РѕРІР°С‚СЊ РІС‹Р±РѕСЂ Рё СЃРѕСЂС‚РёСЂРѕРІРєСѓ РїСѓС‚РµРІРѕРє.
 class Offer implements Comparable <Offer>{
 	private String name;
 	private List<Voucher> vouchers;
@@ -16,35 +16,33 @@ class Offer implements Comparable <Offer>{
 		this.setName(name);
 		this.vouchers = vouchers;
 	} 
-	//Реализуем сортировку по фамилии
+	//Р РµР°Р»РёР·СѓРµРј СЃРѕСЂС‚РёСЂРѕРІРєСѓ РїРѕ С„Р°РјРёР»РёРё
 	  @Override
-		 //реализуем метод compareTo интерфейса Comparable
+		 //СЂРµР°Р»РёР·СѓРµРј РјРµС‚РѕРґ compareTo РёРЅС‚РµСЂС„РµР№СЃР° Comparable
 		     public int compareTo(Offer o) {
-
 		          int   result = this.name.compareTo(o.name);
 		         return result;
 		     }
-		
 		 @Override
 		public String toString() {
 			String s="";
 			  for (int i=0; i < vouchers.size(); i++)
 		        {
-		            s = s + " |=|=| Номер путёвки: "
+		            s = s + " |=|=| РќРѕРјРµСЂ РїСѓС‚С‘РІРєРё: "
 		            		+ ""+vouchers.get(i).getNumber()+" "
-		            				+ "|| Транспорт: "
+		            				+ "|| РўСЂР°РЅСЃРїРѕСЂС‚: "
 		            				+ ""+vouchers.get(i).getTransport()+" |||"
-		            						+ "|| Питание: "
+		            						+ "|| РџРёС‚Р°РЅРёРµ: "
 				            				+ ""+vouchers.get(i).getFood()+" |||"
-				            						+ "|| Число дней прибывания: "
+				            						+ "|| Р§РёСЃР»Рѕ РґРЅРµР№ РїСЂРёР±С‹РІР°РЅРёСЏ: "
 						            				+ ""+vouchers.get(i).getNumberOfDays()+" |||"
-						            						+ "|| Тип путешествия: "
+						            						+ "|| РўРёРї РїСѓС‚РµС€РµСЃС‚РІРёСЏ: "
 								            				+ ""+vouchers.get(i).getType()+" |=|=|"
 		            						+ " ";
 		        }
 				 return "{" +
-	            "Название предложения :'" + name + '\'' +
-	            ", Список путёвок для предложения : ||'" + s  + '\'' +
+	            "РќР°Р·РІР°РЅРёРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ :'" + name + '\'' +
+	            ", РЎРїРёСЃРѕРє РїСѓС‚С‘РІРѕРє РґР»СЏ РїСЂРµРґР»РѕР¶РµРЅРёСЏ : ||'" + s  + '\'' +
 	            '}';
 		}
 	public List<Voucher> getVouchers() {
@@ -72,7 +70,6 @@ class Voucher{
 		this.setNumberOfDays(numberOfDays);
 		this.setType(type);
 	}
-	
 	public int getNumber() {
 		return number;
 	}
@@ -112,92 +109,84 @@ class Voucher{
 }
 public class Task415 {
 	public static void main(String[] args) {
-		Voucher objVoucer = new Voucher(390001,"Доминикана","Авиакомпания AzurAir","All inclusive",30,"Отдых");
-		Voucher objVoucer1 = new Voucher(390002,"Филипины","Авиакомпания AzurAir","All inclusive",30,"Отдых");
-		Voucher objVoucer2 = new Voucher(390003,"Вьетнам","Авиакомпания БелАвиа","HB",15,"Отдых");
-		Voucher objVoucer3 = new Voucher(390004,"Мальдивы","Авиакомпания БелАвиа","HB",9,"Лечение");
-		Voucher objVoucer4 = new Voucher(390005,"Мексика","Авиакомпания AzurAir","All inclusive",30,"Лечение");
-		Voucher objVoucer5 = new Voucher(390006,"Греция","Авиакомпания Аэрофлот","All inclusive",10,"Экскурсии");
-		Voucher objVoucer6 = new Voucher(390007,"Греция","Авиакомпания Аэрофлот","All inclusive",15,"Экскурсии");
-		Voucher objVoucer7 = new Voucher(390006,"Франция","Авиакомпания Аэрофлот","HB",10,"Шопинг");
-		Voucher objVoucer8 = new Voucher(390007,"Франция","Авиакомпания Аэрофлот","HB",15,"Шопинг");
-		Voucher objVoucer9 = new Voucher(390008,"Антарктика","Авиакомпания Аэрофлот","All inclusive",10,"Круиз");
-		Voucher objVoucer10 = new Voucher(390009,"Амазонка","Авиакомпания Аэрофлот","All inclusive",15,"Круиз");
-		// (отдых, экскурсии, лечение, шопинг, круиз и т. д.)
-		//объеденим всех клиенов для удобства
+		Voucher objVoucer = new Voucher(390001,"Р”РѕРјРёРЅРёРєР°РЅР°","РђРІРёР°РєРѕРјРїР°РЅРёСЏ AzurAir","All inclusive",30,"РћС‚РґС‹С…");
+		Voucher objVoucer1 = new Voucher(390002,"Р¤РёР»РёРїРёРЅС‹","РђРІРёР°РєРѕРјРїР°РЅРёСЏ AzurAir","All inclusive",30,"РћС‚РґС‹С…");
+		Voucher objVoucer2 = new Voucher(390003,"Р’СЊРµС‚РЅР°Рј","РђРІРёР°РєРѕРјРїР°РЅРёСЏ Р‘РµР»РђРІРёР°","HB",15,"РћС‚РґС‹С…");
+		Voucher objVoucer3 = new Voucher(390004,"РњР°Р»СЊРґРёРІС‹","РђРІРёР°РєРѕРјРїР°РЅРёСЏ Р‘РµР»РђРІРёР°","HB",9,"Р›РµС‡РµРЅРёРµ");
+		Voucher objVoucer4 = new Voucher(390005,"РњРµРєСЃРёРєР°","РђРІРёР°РєРѕРјРїР°РЅРёСЏ AzurAir","All inclusive",30,"Р›РµС‡РµРЅРёРµ");
+		Voucher objVoucer5 = new Voucher(390006,"Р“СЂРµС†РёСЏ","РђРІРёР°РєРѕРјРїР°РЅРёСЏ РђСЌСЂРѕС„Р»РѕС‚","All inclusive",10,"Р­РєСЃРєСѓСЂСЃРёРё");
+		Voucher objVoucer6 = new Voucher(390007,"Р“СЂРµС†РёСЏ","РђРІРёР°РєРѕРјРїР°РЅРёСЏ РђСЌСЂРѕС„Р»РѕС‚","All inclusive",15,"Р­РєСЃРєСѓСЂСЃРёРё");
+		Voucher objVoucer7 = new Voucher(390006,"Р¤СЂР°РЅС†РёСЏ","РђРІРёР°РєРѕРјРїР°РЅРёСЏ РђСЌСЂРѕС„Р»РѕС‚","HB",10,"РЁРѕРїРёРЅРі");
+		Voucher objVoucer8 = new Voucher(390007,"Р¤СЂР°РЅС†РёСЏ","РђРІРёР°РєРѕРјРїР°РЅРёСЏ РђСЌСЂРѕС„Р»РѕС‚","HB",15,"РЁРѕРїРёРЅРі");
+		Voucher objVoucer9 = new Voucher(390008,"РђРЅС‚Р°СЂРєС‚РёРєР°","РђРІРёР°РєРѕРјРїР°РЅРёСЏ РђСЌСЂРѕС„Р»РѕС‚","All inclusive",10,"РљСЂСѓРёР·");
+		Voucher objVoucer10 = new Voucher(390009,"РђРјР°Р·РѕРЅРєР°","РђРІРёР°РєРѕРјРїР°РЅРёСЏ РђСЌСЂРѕС„Р»РѕС‚","All inclusive",15,"РљСЂСѓРёР·");
+		// (РѕС‚РґС‹С…, СЌРєСЃРєСѓСЂСЃРёРё, Р»РµС‡РµРЅРёРµ, С€РѕРїРёРЅРі, РєСЂСѓРёР· Рё С‚. Рґ.)
+		//РѕР±СЉРµРґРµРЅРёРј РІСЃРµС… РєР»РёРµРЅРѕРІ РґР»СЏ СѓРґРѕР±СЃС‚РІР°
 	 	List<Voucher> relaxationVouchers = new ArrayList<>();
 	 	relaxationVouchers.add(objVoucer);
 	 	relaxationVouchers.add(objVoucer1);
 	 	relaxationVouchers.add(objVoucer2);
-		
 		List<Voucher> excursionsVouchers = new ArrayList<>();
 		excursionsVouchers.add(objVoucer3);
 		excursionsVouchers.add(objVoucer4);
-		
 		List<Voucher> treatmentVouchers = new ArrayList<>();
 		treatmentVouchers.add(objVoucer5);
 		treatmentVouchers.add(objVoucer6);
-		
 		List<Voucher> shoppingVouchers = new ArrayList<>();
 		shoppingVouchers.add(objVoucer7);
 		shoppingVouchers.add(objVoucer8);
-		
 		List<Voucher> cruiseVouchers = new ArrayList<>();
 		cruiseVouchers.add(objVoucer9);
 		cruiseVouchers.add(objVoucer10);
-		
-		Offer objVoucher1 = new Offer("Предложение по отдыху", relaxationVouchers);
-		Offer objVoucher2 = new Offer("Предложение по экскурсиям", excursionsVouchers);
-		Offer objVoucher3 = new Offer("Предложение по лечния", treatmentVouchers);
-		Offer objVoucher4 = new Offer("Предложение по шопингу", shoppingVouchers);
-		Offer objVoucher5 = new Offer("Предложение по круизу", cruiseVouchers);
+		Offer objVoucher1 = new Offer("РџСЂРµРґР»РѕР¶РµРЅРёРµ РїРѕ РѕС‚РґС‹С…Сѓ", relaxationVouchers);
+		Offer objVoucher2 = new Offer("РџСЂРµРґР»РѕР¶РµРЅРёРµ РїРѕ СЌРєСЃРєСѓСЂСЃРёСЏРј", excursionsVouchers);
+		Offer objVoucher3 = new Offer("РџСЂРµРґР»РѕР¶РµРЅРёРµ РїРѕ Р»РµС‡РЅРёСЏ", treatmentVouchers);
+		Offer objVoucher4 = new Offer("РџСЂРµРґР»РѕР¶РµРЅРёРµ РїРѕ С€РѕРїРёРЅРіСѓ", shoppingVouchers);
+		Offer objVoucher5 = new Offer("РџСЂРµРґР»РѕР¶РµРЅРёРµ РїРѕ РєСЂСѓРёР·Сѓ", cruiseVouchers);
 		List<Offer> listOffer = new ArrayList<>();
 		listOffer.add(objVoucher1);
 		listOffer.add(objVoucher2);
 		listOffer.add(objVoucher3);
 		listOffer.add(objVoucher4);
 		listOffer.add(objVoucher5);
-		//Реализуем поиск 
-	 	System.out.println("===== Задание 1 =====");
-	 	System.out.println("===== Выведем все предложения до сортировки");
+		//Р РµР°Р»РёР·СѓРµРј РїРѕРёСЃРє 
+	 	System.out.println("===== Р—Р°РґР°РЅРёРµ 1 =====");
+	 	System.out.println("===== Р’С‹РІРµРґРµРј РІСЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ РґРѕ СЃРѕСЂС‚РёСЂРѕРІРєРё");
 	    for (Offer u : listOffer) {
 	    	System.out.println(u);
 	    }
-	 	System.out.println("===== Выведем все предложения после сортировки названию предложения");
+	 	System.out.println("===== Р’С‹РІРµРґРµРј РІСЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё РЅР°Р·РІР°РЅРёСЋ РїСЂРµРґР»РѕР¶РµРЅРёСЏ");
 	 	Collections.sort(listOffer);
 	    for (Offer u : listOffer) {
 	    	System.out.println(u);
 	    }
-	    //Реализуем 
-	 	System.out.println("===== Задание 2 =====");
-	 	System.out.println("===== Выведем выборку по транспорту, все предложения авиакомпании AzurAir");
+	    //Р РµР°Р»РёР·СѓРµРј 
+	 	System.out.println("===== Р—Р°РґР°РЅРёРµ 2 =====");
+	 	System.out.println("===== Р’С‹РІРµРґРµРј РІС‹Р±РѕСЂРєСѓ РїРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Сѓ, РІСЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ Р°РІРёР°РєРѕРјРїР°РЅРёРё AzurAir");
 	    for (Offer u : listOffer) {
 	    	for(int i=0;i<u.getVouchers().size();i++)
-	    	if (u.getVouchers().get(i).getTransport()=="Авиакомпания AzurAir")
-	    	System.out.println("Найдена путёвка: "+u.getVouchers().get(i).getNumber()+" "
+	    	if (u.getVouchers().get(i).getTransport()=="РђРІРёР°РєРѕРјРїР°РЅРёСЏ AzurAir")
+	    	System.out.println("РќР°Р№РґРµРЅР° РїСѓС‚С‘РІРєР°: "+u.getVouchers().get(i).getNumber()+" "
 	    			+ ""+u.getVouchers().get(i).getTransport()+" "
-	    					+ "Страна назначения "+u.getVouchers().get(i).getCountry());
+	    					+ "РЎС‚СЂР°РЅР° РЅР°Р·РЅР°С‡РµРЅРёСЏ "+u.getVouchers().get(i).getCountry());
 	    }
-	    System.out.println("===== Задание 3 =====");
-	 	System.out.println("===== Выведем выборку по итанию, все предложения где всё включено");
+	    System.out.println("===== Р—Р°РґР°РЅРёРµ 3 =====");
+	 	System.out.println("===== Р’С‹РІРµРґРµРј РІС‹Р±РѕСЂРєСѓ РїРѕ РёС‚Р°РЅРёСЋ, РІСЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ РіРґРµ РІСЃС‘ РІРєР»СЋС‡РµРЅРѕ");
 	    for (Offer u : listOffer) {
 	    	for(int i=0;i<u.getVouchers().size();i++)
 	    	if (u.getVouchers().get(i).getFood()=="All inclusive")
-	    	System.out.println("Найдена путёвка: "+u.getVouchers().get(i).getNumber()+" "
-	    			+ "Тип питания: "+u.getVouchers().get(i).getFood()+" "
-	    					+ "Страна назначения "+u.getVouchers().get(i).getCountry());
+	    	System.out.println("РќР°Р№РґРµРЅР° РїСѓС‚С‘РІРєР°: "+u.getVouchers().get(i).getNumber()+" "
+	    			+ "РўРёРї РїРёС‚Р°РЅРёСЏ: "+u.getVouchers().get(i).getFood()+" "
+	    					+ "РЎС‚СЂР°РЅР° РЅР°Р·РЅР°С‡РµРЅРёСЏ "+u.getVouchers().get(i).getCountry());
 	    }
-	    System.out.println("===== Задание 4 =====");
-	 	System.out.println("===== Выведем выборку по числу дней, все путевки на 30 дней");
+	    System.out.println("===== Р—Р°РґР°РЅРёРµ 4 =====");
+	 	System.out.println("===== Р’С‹РІРµРґРµРј РІС‹Р±РѕСЂРєСѓ РїРѕ С‡РёСЃР»Сѓ РґРЅРµР№, РІСЃРµ РїСѓС‚РµРІРєРё РЅР° 30 РґРЅРµР№");
 	    for (Offer u : listOffer) {
 	    	for(int i=0;i<u.getVouchers().size();i++)
 	    	if (u.getVouchers().get(i).getNumberOfDays()==30)
-	    	System.out.println("Найдена путёвка: "+u.getVouchers().get(i).getNumber()+" "
-	    			+ " Количество дней: "+u.getVouchers().get(i).getNumberOfDays()+" "
-	    					+ "Страна назначения "+u.getVouchers().get(i).getCountry());
+	    	System.out.println("РќР°Р№РґРµРЅР° РїСѓС‚С‘РІРєР°: "+u.getVouchers().get(i).getNumber()+" "
+	    			+ " РљРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№: "+u.getVouchers().get(i).getNumberOfDays()+" "
+	    					+ "РЎС‚СЂР°РЅР° РЅР°Р·РЅР°С‡РµРЅРёСЏ "+u.getVouchers().get(i).getCountry());
 	    }
-	 
-	 
 	}
-
 }

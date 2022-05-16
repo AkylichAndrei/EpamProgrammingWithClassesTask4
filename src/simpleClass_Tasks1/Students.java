@@ -1,25 +1,20 @@
-// Создайте класс с именем Student, содержащий поля: фамилия и инициалы, номер группы, успеваемость 
-// (массив из пяти элементов). Создайте массив из десяти элементов такого типа. Добавьте возможность 
-// вывода фамилий и номеров групп студентов, имеющих оценки, равные только 9 или 10.
+// РЎРѕР·РґР°Р№С‚Рµ РєР»Р°СЃСЃ СЃ РёРјРµРЅРµРј Student, СЃРѕРґРµСЂР¶Р°С‰РёР№ РїРѕР»СЏ: С„Р°РјРёР»РёСЏ Рё РёРЅРёС†РёР°Р»С‹, РЅРѕРјРµСЂ РіСЂСѓРїРїС‹, СѓСЃРїРµРІР°РµРјРѕСЃС‚СЊ 
+// (РјР°СЃСЃРёРІ РёР· РїСЏС‚Рё СЌР»РµРјРµРЅС‚РѕРІ). РЎРѕР·РґР°Р№С‚Рµ РјР°СЃСЃРёРІ РёР· РґРµСЃСЏС‚Рё СЌР»РµРјРµРЅС‚РѕРІ С‚Р°РєРѕРіРѕ С‚РёРїР°. Р”РѕР±Р°РІСЊС‚Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ 
+// РІС‹РІРѕРґР° С„Р°РјРёР»РёР№ Рё РЅРѕРјРµСЂРѕРІ РіСЂСѓРїРї СЃС‚СѓРґРµРЅС‚РѕРІ, РёРјРµСЋС‰РёС… РѕС†РµРЅРєРё, СЂР°РІРЅС‹Рµ С‚РѕР»СЊРєРѕ 9 РёР»Рё 10.
 package simpleClass_Tasks1;
-
 import java.util.Scanner;
 
 public class Students {
-	private String firstName; // Имя
-	private String middleName;// Отчество
-	private String lastName;  // Фамилия
-	private long groupNumber;  // номер группы
-	public int[] academicPerformance = new int[5]; //успеваемость
-	
+	private String firstName; // РРјСЏ
+	private String middleName;// РћС‚С‡РµСЃС‚РІРѕ
+	private String lastName;  // Р¤Р°РјРёР»РёСЏ
+	private long groupNumber;  // РЅРѕРјРµСЂ РіСЂСѓРїРїС‹
+	public int[] academicPerformance = new int[5]; //СѓСЃРїРµРІР°РµРјРѕСЃС‚СЊ
 	Students(String fN, String mN, String lN, long gN) {
-		
 		this.setFirstName(fN);
 		this.setMiddleName(mN);
 		this.setLastName(lN);
 		this.setGroupNumber(gN);
-		
-	
 	}
 	public String getFirstName() {
 		return firstName;
@@ -45,8 +40,6 @@ public class Students {
 	public void setGroupNumber(long groupNumber) {
 		this.groupNumber = groupNumber;
 	}
-	
-	
 	public static void main(String[] args) {
 	 Students[] stud = new Students[9];
 	 String fN,mN,lN;
@@ -54,42 +47,34 @@ public class Students {
 	 int	sumAP = 0;
 	 Scanner in = new Scanner(System.in);
 	 for(int i = 0; i < stud.length; i++) {
-		 
-		System.out.println("Нажмите Enter, если готовы... ");
+		System.out.println("РќР°Р¶РјРёС‚Рµ Enter, РµСЃР»Рё РіРѕС‚РѕРІС‹... ");
 		in.nextLine();
-		System.out.println("Введите имя студента: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ РёРјСЏ СЃС‚СѓРґРµРЅС‚Р°: ");
 		fN = in.nextLine();
-		System.out.println("Введите отчество студента: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚Р°: ");
 		mN = in.nextLine();
-		System.out.println("Введите фамилию студента: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃС‚СѓРґРµРЅС‚Р°: ");
 		lN = in.nextLine();
-		System.out.println("Введите номер группы: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РіСЂСѓРїРїС‹: ");
 		gN = in.nextLong();
 		stud[i] = new Students(fN,mN,lN,gN);
 		for(int j = 0; j < 5; j++) {
-			System.out.println("Введите оценку студента номер: " + (j+1));
+			System.out.println("Р’РІРµРґРёС‚Рµ РѕС†РµРЅРєСѓ СЃС‚СѓРґРµРЅС‚Р° РЅРѕРјРµСЂ: " + (j+1));
 			stud[i].academicPerformance[j]= in.nextInt();
 		}
-		
 	 }
 	 in.close();
-	 
 	 for(int j = 0; j< stud.length; j++) {
 			for(int i = 0; i < 5; i++) {
 			 	sumAP += stud[j].academicPerformance[i];
 			}
 			if(sumAP >= 45){
 			System.out.println(" ===================================" );
-			System.out.println(" Найден студент отличник: " + stud[j].getLastName());
-			System.out.println(" Номер группы студента отличника: " + stud[j].getGroupNumber());
+			System.out.println(" РќР°Р№РґРµРЅ СЃС‚СѓРґРµРЅС‚ РѕС‚Р»РёС‡РЅРёРє: " + stud[j].getLastName());
+			System.out.println(" РќРѕРјРµСЂ РіСЂСѓРїРїС‹ СЃС‚СѓРґРµРЅС‚Р° РѕС‚Р»РёС‡РЅРёРєР°: " + stud[j].getGroupNumber());
 			}
 			sumAP =0;
 			}
 	 System.out.println(" ===================================" );
-	  
 	 }
-		
 }
-	
-	
-

@@ -7,7 +7,6 @@ public class Time1 {
 	private int minutes;
 	private int seconds;
 	Time1(){
-		
 	}
 	Time1(int h, int m, int s){
 		this.setHours(h);
@@ -20,26 +19,26 @@ public class Time1 {
 		this.setSeconds(s);
 	}
 	private void print(){
-		System.out.println("Текущее время Часы: "+this.getHours()+" Минуты: "+this.getMinutes()+" Секунды:"+this.getSeconds());
+		System.out.println("РўРµРєСѓС‰РµРµ РІСЂРµРјСЏ Р§Р°СЃС‹: "+this.getHours()+" РњРёРЅСѓС‚С‹: "+this.getMinutes()+" РЎРµРєСѓРЅРґС‹:"+this.getSeconds());
 	}
 	public static void main(String[] args) {
 		int h,m,s;
 		Time1 objectTime = new Time1();
 		Scanner in = new Scanner(System.in);
-		System.out.println("Введите часы: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹: ");
 		h = in.nextInt();
-		System.out.println("Введите минуты: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹: ");
 		m = in.nextInt();
-		System.out.println("Введите секунды: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ СЃРµРєСѓРЅРґС‹: ");
 		s = in.nextInt();
 		objectTime = new Time1(h,m,s);
 		objectTime.print();
-		System.out.println("Попробуем изменить значение времени ");
-		System.out.println("Введите часы: ");
+		System.out.println("РџРѕРїСЂРѕР±СѓРµРј РёР·РјРµРЅРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ РІСЂРµРјРµРЅРё ");
+		System.out.println("Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹: ");
 		h = in.nextInt();
-		System.out.println("Введите минуты: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹: ");
 		m = in.nextInt();
-		System.out.println("Введите секунды: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ СЃРµРєСѓРЅРґС‹: ");
 		s = in.nextInt();
 		in.close();
 		objectTime.changeObject(h, m, s);
@@ -52,7 +51,7 @@ public class Time1 {
 		if((hours<=23)&&(hours>=0))
 		this.hours = hours;
 		else {
-			System.out.println("Время введено некоректно! Зачение класса Часы будет равно 0 ");
+			System.out.println("Р’СЂРµРјСЏ РІРІРµРґРµРЅРѕ РЅРµРєРѕСЂРµРєС‚РЅРѕ! Р—Р°С‡РµРЅРёРµ РєР»Р°СЃСЃР° Р§Р°СЃС‹ Р±СѓРґРµС‚ СЂР°РІРЅРѕ 0 ");
 			this.hours = 0;
 		}
 	}
@@ -63,10 +62,9 @@ public class Time1 {
 		if((minutes<=59)&&(minutes>=0))
 			this.minutes = minutes;
 			else {
-				System.out.println("Время введено некоректно! Зачение класса Минуты будет равно 0 ");
+				System.out.println("Р’СЂРµРјСЏ РІРІРµРґРµРЅРѕ РЅРµРєРѕСЂРµРєС‚РЅРѕ! Р—Р°С‡РµРЅРёРµ РєР»Р°СЃСЃР° РњРёРЅСѓС‚С‹ Р±СѓРґРµС‚ СЂР°РІРЅРѕ 0 ");
 				this.minutes = 0;
 			}
-		
 	}
 	public int getSeconds() {
 		return seconds;
@@ -75,10 +73,8 @@ public class Time1 {
 		if((seconds<=59)&&(seconds>=0))
 			this.seconds = seconds;
 			else {
-				System.out.println("Время введено некоректно! Зачение класса Секунды будет равно 0 ");
+				System.out.println("Р’СЂРµРјСЏ РІРІРµРґРµРЅРѕ РЅРµРєРѕСЂРµРєС‚РЅРѕ! Р—Р°С‡РµРЅРёРµ РєР»Р°СЃСЃР° РЎРµРєСѓРЅРґС‹ Р±СѓРґРµС‚ СЂР°РІРЅРѕ 0 ");
 				this.seconds = 0;
 			}
-		
 	}
-
 }

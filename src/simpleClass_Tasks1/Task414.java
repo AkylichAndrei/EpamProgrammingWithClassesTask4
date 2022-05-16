@@ -3,13 +3,12 @@ package simpleClass_Tasks1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-//Счета. Клиент может иметь несколько счетов в банке.
-//Учитывать возможность блокировки/разблокировки счета. 
-//Реализовать поиск и сортировку счетов.
-//Вычисление общей суммы по счетам.
-//Вычисление суммы по всем счетам, имеющим положительный и отрицательный балансы отдельно.
-class Client implements Comparable <Client>{//добавляем возможность сравнивать объекты
+//РЎС‡РµС‚Р°. РљР»РёРµРЅС‚ РјРѕР¶РµС‚ РёРјРµС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ СЃС‡РµС‚РѕРІ РІ Р±Р°РЅРєРµ.
+//РЈС‡РёС‚С‹РІР°С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ Р±Р»РѕРєРёСЂРѕРІРєРё/СЂР°Р·Р±Р»РѕРєРёСЂРѕРІРєРё СЃС‡РµС‚Р°. 
+//Р РµР°Р»РёР·РѕРІР°С‚СЊ РїРѕРёСЃРє Рё СЃРѕСЂС‚РёСЂРѕРІРєСѓ СЃС‡РµС‚РѕРІ.
+//Р’С‹С‡РёСЃР»РµРЅРёРµ РѕР±С‰РµР№ СЃСѓРјРјС‹ РїРѕ СЃС‡РµС‚Р°Рј.
+//Р’С‹С‡РёСЃР»РµРЅРёРµ СЃСѓРјРјС‹ РїРѕ РІСЃРµРј СЃС‡РµС‚Р°Рј, РёРјРµСЋС‰РёРј РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Р№ Рё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Р№ Р±Р°Р»Р°РЅСЃС‹ РѕС‚РґРµР»СЊРЅРѕ.
+class Client implements Comparable <Client>{//РґРѕР±Р°РІР»СЏРµРј РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЃСЂР°РІРЅРёРІР°С‚СЊ РѕР±СЉРµРєС‚С‹
 	private int idClient;
 	private String name;
 	private List<Account> account;
@@ -18,45 +17,41 @@ class Client implements Comparable <Client>{//добавляем возможность сравнивать о
 		this.setName(name);
 		this.account=account;
 	}
-	//Реализуем поиск 
+	//Р РµР°Р»РёР·СѓРµРј РїРѕРёСЃРє 
 	public void searchAccountNumber(int aN) {
 		 for(int i = 0; i < account.size(); i++) 
 			 if (account.get(i).getNumber()==aN) {
-				 System.out.println("Найдена аккаунт с таким номером: "+account.get(i).getNumber()+ 
-						 " Его владелец "+this.getName());;
+				 System.out.println("РќР°Р№РґРµРЅР° Р°РєРєР°СѓРЅС‚ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј: "+account.get(i).getNumber()+ 
+						 " Р•РіРѕ РІР»Р°РґРµР»РµС† "+this.getName());;
 			 }
 	}
-	//Реализуем сортировку по фамилии
+	//Р РµР°Р»РёР·СѓРµРј СЃРѕСЂС‚РёСЂРѕРІРєСѓ РїРѕ С„Р°РјРёР»РёРё
 	  @Override
-		 //реализуем метод compareTo интерфейса Comparable
+		 //СЂРµР°Р»РёР·СѓРµРј РјРµС‚РѕРґ compareTo РёРЅС‚РµСЂС„РµР№СЃР° Comparable
 		     public int compareTo(Client o) {
-
 		          int   result = this.name.compareTo(o.name);
 		         return result;
 		     }
-		
 		 @Override
 		public String toString() {
 			String s="";
 			  for (int i=0; i < account.size(); i++)
 		        {
-		            s = s + " Номер аккаунта: "+account.get(i).getNumber()+" || Cумма а счёте: "+
+		            s = s + " РќРѕРјРµСЂ Р°РєРєР°СѓРЅС‚Р°: "+account.get(i).getNumber()+" || CСѓРјРјР° Р° СЃС‡С‘С‚Рµ: "+
 		        account.get(i).getBalance()+" ||| ";
 		        }
 				 return "{" +
-	            "Айди ='" + idClient + '\'' +
-	            ", Имя =" + name +
-	            ", Список счетов = ||'" + s  + '\'' +
+	            "РђР№РґРё ='" + idClient + '\'' +
+	            ", РРјСЏ =" + name +
+	            ", РЎРїРёСЃРѕРє СЃС‡РµС‚РѕРІ = ||'" + s  + '\'' +
 	            '}';
-				
 		}
-		//Вычисление общей суммы по счетам.
+		//Р’С‹С‡РёСЃР»РµРЅРёРµ РѕР±С‰РµР№ СЃСѓРјРјС‹ РїРѕ СЃС‡РµС‚Р°Рј.
 		 public int allSummAccounts() {
 			 int allSumm=0;
 			 for(int i = 0; i < account.size(); i++) 
 				 allSumm = allSumm + account.get(i).getBalance();
 				return allSumm;
-				
 		 }
 		public int positiveAmountAccounts() {
 			int allSumm=0;
@@ -90,7 +85,7 @@ class Client implements Comparable <Client>{//добавляем возможность сравнивать о
 }
 class Account{
 	private int number;
-	private int balance; //возможность блокировки/разблокировки
+	private int balance; //РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ Р±Р»РѕРєРёСЂРѕРІРєРё/СЂР°Р·Р±Р»РѕРєРёСЂРѕРІРєРё
 	private boolean blocking;
 	Account(int number, int balance, boolean blocking){
 		this.setNumber(number);
@@ -117,9 +112,8 @@ class Account{
 	}
 }
 public class Task414 {
-
 	public static void main(String[] args) {
-		//создадим счета
+		//СЃРѕР·РґР°РґРёРј СЃС‡РµС‚Р°
 		Account objAcc = new Account(10002,5_000,true);
 		Account objAcc2 = new Account(10001,-5__000,true);
 		Account objAcc3 = new Account(10003,7_000,true);
@@ -127,7 +121,7 @@ public class Task414 {
 		Account objAcc5 = new Account(10005,1_000,true);
 		Account objAcc6 = new Account(10007,-9_000,false);
 		Account objAcc7 = new Account(10006,500,false);
-		//создадим списки счетов
+		//СЃРѕР·РґР°РґРёРј СЃРїРёСЃРєРё СЃС‡РµС‚РѕРІ
 	 	List<Account> listAccount = new ArrayList<>();
 	 	listAccount.add(objAcc);
 	 	listAccount.add(objAcc2);
@@ -138,52 +132,44 @@ public class Task414 {
 	 	listAccount3.add(objAcc5);
 	 	listAccount3.add(objAcc6);
 	 	listAccount3.add(objAcc7);
-	 	//создадим клиентов
-	 	Client objClient = new Client(1001,"Акулич Андрей Викторович",listAccount);
-	 	Client objClient3 = new Client(1003,"Позняк Алексей Игоревич",listAccount3);
-	 	Client objClient2 = new Client(1002,"Утиков сергей Нузеркулович",listAccount2);
-	 	
-	 	
-	 	//объеденим всех клиенов для удобства
+	 	//СЃРѕР·РґР°РґРёРј РєР»РёРµРЅС‚РѕРІ
+	 	Client objClient = new Client(1001,"РђРєСѓР»РёС‡ РђРЅРґСЂРµР№ Р’РёРєС‚РѕСЂРѕРІРёС‡",listAccount);
+	 	Client objClient3 = new Client(1003,"РџРѕР·РЅСЏРє РђР»РµРєСЃРµР№ РРіРѕСЂРµРІРёС‡",listAccount3);
+	 	Client objClient2 = new Client(1002,"РЈС‚РёРєРѕРІ СЃРµСЂРіРµР№ РќСѓР·РµСЂРєСѓР»РѕРІРёС‡",listAccount2);
+	 	//РѕР±СЉРµРґРµРЅРёРј РІСЃРµС… РєР»РёРµРЅРѕРІ РґР»СЏ СѓРґРѕР±СЃС‚РІР°
 	 	List<Client> listClients = new ArrayList<>();
 	 	listClients.add(objClient);
 	 	listClients.add(objClient2);
 	 	listClients.add(objClient3);
-	 	 
-	 	//Реализуем поиск 
-	 	System.out.println("===== Задание 1 =====");
-	 	System.out.println("===== попробуем найти клиента с номером счёта 10006");
+	 	//Р РµР°Р»РёР·СѓРµРј РїРѕРёСЃРє 
+	 	System.out.println("===== Р—Р°РґР°РЅРёРµ 1 =====");
+	 	System.out.println("===== РїРѕРїСЂРѕР±СѓРµРј РЅР°Р№С‚Рё РєР»РёРµРЅС‚Р° СЃ РЅРѕРјРµСЂРѕРј СЃС‡С‘С‚Р° 10006");
 	    for (Client u : listClients) {
 	       u.searchAccountNumber(10006);
 	    }
-	    System.out.println("===== Задание 2 =====");
-	    System.out.println("===== до сортировки по фамилии=====");
+	    System.out.println("===== Р—Р°РґР°РЅРёРµ 2 =====");
+	    System.out.println("===== РґРѕ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕ С„Р°РјРёР»РёРё=====");
 	    for (Client u : listClients) {
-	    	
 	        System.out.println(u);
 	    }
-	    System.out.println("===== после сортировки по фамилии =====");
+	    System.out.println("===== РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕ С„Р°РјРёР»РёРё =====");
 	    Collections.sort(listClients);
 	    for (Client u : listClients) {
-	    	
 	        System.out.println(u);
-
 	    }
-	    System.out.println("===== Задание 3 =====");
+	    System.out.println("===== Р—Р°РґР°РЅРёРµ 3 =====");
 	    int summ=0;
         for (Client u : listClients)
 	    	summ = summ + u.allSummAccounts();
-	    System.out.println("Общая сумма по аккаунтам "+ summ);
-	    System.out.println("===== Задание 4 =====");
+	    System.out.println("РћР±С‰Р°СЏ СЃСѓРјРјР° РїРѕ Р°РєРєР°СѓРЅС‚Р°Рј "+ summ);
+	    System.out.println("===== Р—Р°РґР°РЅРёРµ 4 =====");
 	    int positiveAmount=0;
 	    int negativeAmount=0;
 	    for (Client u : listClients) 
 	    	positiveAmount = positiveAmount + u.positiveAmountAccounts();
 	    for (Client u : listClients) 
 	    	negativeAmount = negativeAmount + u.negativeAmountAccounts();
-	    System.out.println("Общая сумма положительных денег "+ positiveAmount);
-	    System.out.println("Общая сумма отрицательных денег"+ negativeAmount);
-	    
+	    System.out.println("РћР±С‰Р°СЏ СЃСѓРјРјР° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹С… РґРµРЅРµРі "+ positiveAmount);
+	    System.out.println("РћР±С‰Р°СЏ СЃСѓРјРјР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… РґРµРЅРµРі"+ negativeAmount);
 	}
-
 }

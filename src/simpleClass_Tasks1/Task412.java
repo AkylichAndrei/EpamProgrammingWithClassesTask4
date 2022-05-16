@@ -1,7 +1,7 @@
 package simpleClass_Tasks1;
 
-//Создать объект класса Автомобиль, используя классы Колесо, Двигатель. 
-//Методы: ехать, заправляться, менять колесо, вывести на консоль марку автомобиля.
+//РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° РђРІС‚РѕРјРѕР±РёР»СЊ, РёСЃРїРѕР»СЊР·СѓСЏ РєР»Р°СЃСЃС‹ РљРѕР»РµСЃРѕ, Р”РІРёРіР°С‚РµР»СЊ. 
+//РњРµС‚РѕРґС‹: РµС…Р°С‚СЊ, Р·Р°РїСЂР°РІР»СЏС‚СЊСЃСЏ, РјРµРЅСЏС‚СЊ РєРѕР»РµСЃРѕ, РІС‹РІРµСЃС‚Рё РЅР° РєРѕРЅСЃРѕР»СЊ РјР°СЂРєСѓ Р°РІС‚РѕРјРѕР±РёР»СЏ.
 class Wheel{
 	private int number;
 	Wheel(int number){
@@ -15,23 +15,21 @@ class Wheel{
 	}
 }
 class Engine{
-	private int gas; //бензин для работы двигателя двигателя
+	private int gas; //Р±РµРЅР·РёРЅ РґР»СЏ СЂР°Р±РѕС‚С‹ РґРІРёРіР°С‚РµР»СЏ РґРІРёРіР°С‚РµР»СЏ
 	Engine(int gas){
 		this.setGas(gas);
 	}
 	public void start() 
     { 
-		this.setGas(this.getGas()-1);//при запуске двигателя тратиться 1 топлива!
+		this.setGas(this.getGas()-1);//РїСЂРё Р·Р°РїСѓСЃРєРµ РґРІРёРіР°С‚РµР»СЏ С‚СЂР°С‚РёС‚СЊСЃСЏ 1 С‚РѕРїР»РёРІР°!
 		if(this.getGas()>1)
-        System.out.println("Двигатель запущен! ");
+        System.out.println("Р”РІРёРіР°С‚РµР»СЊ Р·Р°РїСѓС‰РµРЅ! ");
 		if(this.getGas()<1)
-			System.out.println("Двигатель не запущен! ");
-        
+			System.out.println("Р”РІРёРіР°С‚РµР»СЊ РЅРµ Р·Р°РїСѓС‰РµРЅ! ");
     }
-	
 	public void stop() 
     { 
-        System.out.println("Двигатель не работает и не тратит топливо! "); 
+        System.out.println("Р”РІРёРіР°С‚РµР»СЊ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Рё РЅРµ С‚СЂР°С‚РёС‚ С‚РѕРїР»РёРІРѕ! "); 
     }
 	public int getGas() {
 		return gas;
@@ -39,7 +37,7 @@ class Engine{
 	public void setGas(int gas) {
 		if(gas < 1) {
 		this.gas=0;
-		System.out.println("Бензин закончился! требуется дозаправка!");
+		System.out.println("Р‘РµРЅР·РёРЅ Р·Р°РєРѕРЅС‡РёР»СЃСЏ! С‚СЂРµР±СѓРµС‚СЃСЏ РґРѕР·Р°РїСЂР°РІРєР°!");
 		}
 		else
 		this.gas = gas;
@@ -47,10 +45,9 @@ class Engine{
 }
 class Car{
 	private String carModel;
-	private boolean machineHealth;//исправность машины
+	private boolean machineHealth;//РёСЃРїСЂР°РІРЅРѕСЃС‚СЊ РјР°С€РёРЅС‹
     private final Engine engine; // Composition 
     private final Wheel wheel;  
-      
     Car(String carModel, boolean machineHealth, Engine engine, Wheel wheel) 
     { 
     	this.setCarModel(carModel);
@@ -60,40 +57,38 @@ class Car{
        
     } 
     public void wheelPuncture() {
-    	System.out.println("случился прокол колеса! нельзя ехать! "); 
+    	System.out.println("СЃР»СѓС‡РёР»СЃСЏ РїСЂРѕРєРѕР» РєРѕР»РµСЃР°! РЅРµР»СЊР·СЏ РµС…Р°С‚СЊ! "); 
     	wheel.setNumber(wheel.getNumber()-1);
     	this.setMachineHealth(false);
     }
     public void wheelReplacement() {
-    	System.out.println("произведена замена колеса! можно ехать! "); 
+    	System.out.println("РїСЂРѕРёР·РІРµРґРµРЅР° Р·Р°РјРµРЅР° РєРѕР»РµСЃР°! РјРѕР¶РЅРѕ РµС…Р°С‚СЊ! "); 
     	wheel.setNumber(4);
     	this.setMachineHealth(true);
     }
-      
-    //дозаправка машины
+    //РґРѕР·Р°РїСЂР°РІРєР° РјР°С€РёРЅС‹
     public void refuel() {
-    	System.out.println("Машина заправлена можно ехать! "); 
-        engine.setGas(engine.getGas()+10);//при заправке доливается 10 топлива!
+    	System.out.println("РњР°С€РёРЅР° Р·Р°РїСЂР°РІР»РµРЅР° РјРѕР¶РЅРѕ РµС…Р°С‚СЊ! "); 
+        engine.setGas(engine.getGas()+10);//РїСЂРё Р·Р°РїСЂР°РІРєРµ РґРѕР»РёРІР°РµС‚СЃСЏ 10 С‚РѕРїР»РёРІР°!
         this.setMachineHealth(true);
     }
     public void printModel() {
-    	System.out.println("Модель машины "+this.getCarModel());
+    	System.out.println("РњРѕРґРµР»СЊ РјР°С€РёРЅС‹ "+this.getCarModel());
     }
-    //движение машины
+    //РґРІРёР¶РµРЅРёРµ РјР°С€РёРЅС‹
     public void move()  
     { 
             engine.start(); 
-            if((engine.getGas()>4) && (this.isMachineHealth()==true)) {//если все 4 колеса впорядке можно ехать
-            System.out.println("Машина поехала "); 
-            engine.setGas(engine.getGas()-3);//при работе двигателя тратиться 3 топлива!
+            if((engine.getGas()>4) && (this.isMachineHealth()==true)) {//РµСЃР»Рё РІСЃРµ 4 РєРѕР»РµСЃР° РІРїРѕСЂСЏРґРєРµ РјРѕР¶РЅРѕ РµС…Р°С‚СЊ
+            System.out.println("РњР°С€РёРЅР° РїРѕРµС…Р°Р»Р° "); 
+            engine.setGas(engine.getGas()-3);//РїСЂРё СЂР°Р±РѕС‚Рµ РґРІРёРіР°С‚РµР»СЏ С‚СЂР°С‚РёС‚СЊСЃСЏ 3 С‚РѕРїР»РёРІР°!
             }
-            else  System.out.println("Машина не справна! ");
+            else  System.out.println("РњР°С€РёРЅР° РЅРµ СЃРїСЂР°РІРЅР°! ");
     }
 
 	public String getCarModel() {
 		return carModel;
 	}
-
 	public void setCarModel(String carModel) {
 		this.carModel = carModel;
 	}
@@ -108,23 +103,18 @@ class Car{
 		this.machineHealth = machineHealth;
 	} 
 }
-
 public class Task412 {
-
 	public static void main(String[] args) {
-		
-		    Engine engine = new Engine(10); //создадим двигатель с 10 литрами бензина
-		    Wheel wheel = new Wheel(4);  //создадим 4 колеса 
-	        Car car = new Car("Porshe 911",true,engine, wheel); //создадим машину
-	        car.move();  // покатаемся на машине
-	        car.move();  // ещё покатаемся на машин
-	        car.printModel(); // узнаем марку
-	        car.wheelPuncture();// устроим прокол
-	        car.move(); // попробуем покатаемся на машине, но получится ли? возможно закончится бензин
-	        car.refuel();//дозаправимся
-	        car.wheelReplacement(); // меняем колесо
-	        car.move(); // попробуем покатаемся на машине должно получится!:)
-	        
+		    Engine engine = new Engine(10); //СЃРѕР·РґР°РґРёРј РґРІРёРіР°С‚РµР»СЊ СЃ 10 Р»РёС‚СЂР°РјРё Р±РµРЅР·РёРЅР°
+		    Wheel wheel = new Wheel(4);  //СЃРѕР·РґР°РґРёРј 4 РєРѕР»РµСЃР° 
+	        Car car = new Car("Porshe 911",true,engine, wheel); //СЃРѕР·РґР°РґРёРј РјР°С€РёРЅСѓ
+	        car.move();  // РїРѕРєР°С‚Р°РµРјСЃСЏ РЅР° РјР°С€РёРЅРµ
+	        car.move();  // РµС‰С‘ РїРѕРєР°С‚Р°РµРјСЃСЏ РЅР° РјР°С€РёРЅ
+	        car.printModel(); // СѓР·РЅР°РµРј РјР°СЂРєСѓ
+	        car.wheelPuncture();// СѓСЃС‚СЂРѕРёРј РїСЂРѕРєРѕР»
+	        car.move(); // РїРѕРїСЂРѕР±СѓРµРј РїРѕРєР°С‚Р°РµРјСЃСЏ РЅР° РјР°С€РёРЅРµ, РЅРѕ РїРѕР»СѓС‡РёС‚СЃСЏ Р»Рё? РІРѕР·РјРѕР¶РЅРѕ Р·Р°РєРѕРЅС‡РёС‚СЃСЏ Р±РµРЅР·РёРЅ
+	        car.refuel();//РґРѕР·Р°РїСЂР°РІРёРјСЃСЏ
+	        car.wheelReplacement(); // РјРµРЅСЏРµРј РєРѕР»РµСЃРѕ
+	        car.move(); // РїРѕРїСЂРѕР±СѓРµРј РїРѕРєР°С‚Р°РµРјСЃСЏ РЅР° РјР°С€РёРЅРµ РґРѕР»Р¶РЅРѕ РїРѕР»СѓС‡РёС‚СЃСЏ!:)
 	}
-
 }

@@ -3,41 +3,33 @@ package simpleClass_Tasks1;
 import java.util.Scanner;
 
 public class Train {
-	
 	private String finalDistination;
 	private int trainNumber;
 	public int [] startTime = new int[3];
-	
 	Train(String fD, int tN) {
 		this.setFinalDistination(fD);
 		this.setTrainNumber(tN);
-		
 	}
-	
 	public static void main(String[] args) {
 		Train[] objectTrain = new Train[3]; 
 		Train[] objectTemp = new Train[1];
 		 String fD;
 		 int tN;
-		 
-		 //=======================ввод объекта с клавиатуры
+		 //=======================РІРІРѕРґ РѕР±СЉРµРєС‚Р° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 		 Scanner in = new Scanner(System.in);
 		for(int i=0; i < objectTrain.length; i++) {
-			System.out.println("Нажмите Enter, если готовы... ");
+			System.out.println("РќР°Р¶РјРёС‚Рµ Enter, РµСЃР»Рё РіРѕС‚РѕРІС‹... ");
 			in.nextLine();
-			System.out.println("Введите пунк назначения: ");
+			System.out.println("Р’РІРµРґРёС‚Рµ РїСѓРЅРє РЅР°Р·РЅР°С‡РµРЅРёСЏ: ");
 			fD = in.nextLine();
-			System.out.println("Введите номер поезда: ");
+			System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРѕРµР·РґР°: ");
 			tN = in.nextInt();
-			System.out.println("Введите время отправления Часы/минуты/секунды: ");
+			System.out.println("Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ Р§Р°СЃС‹/РјРёРЅСѓС‚С‹/СЃРµРєСѓРЅРґС‹: ");
 			objectTrain[i]= new Train(fD,tN);
 			for(int j=0; j < 3; j++)
 			objectTrain[i].startTime[j] = in.nextInt();	
 		}
-		
-		
-		//=================Сортировка объекта по полям
-
+		//=================РЎРѕСЂС‚РёСЂРѕРІРєР° РѕР±СЉРµРєС‚Р° РїРѕ РїРѕР»СЏРј
         boolean isSorted = false;
         while(!isSorted) {
             isSorted = true;
@@ -48,41 +40,33 @@ public class Train {
 					objectTrain[i]=objectTrain[i + 1];
 					objectTrain[i + 1]=objectTemp[0];
             }
-            
         }
-		
-      //=================Вывод объекта на экран
+      //=================Р’С‹РІРѕРґ РѕР±СЉРµРєС‚Р° РЅР° СЌРєСЂР°РЅ
 		for(int i=0; i < objectTrain.length; i++) {
-			
-			System.out.println("Пункт назначения " + objectTrain[i].getFinalDistination());
-			System.out.println("номер поезда: " + objectTrain[i].getTrainNumber());		
-			System.out.println("Время отправления: "+objectTrain[i].startTime[0]+" / " + objectTrain[i].startTime[1] + " / " + objectTrain[i].startTime[2]);
-			
+			System.out.println("РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ " + objectTrain[i].getFinalDistination());
+			System.out.println("РЅРѕРјРµСЂ РїРѕРµР·РґР°: " + objectTrain[i].getTrainNumber());		
+			System.out.println("Р’СЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ: "+objectTrain[i].startTime[0]+" / " + objectTrain[i].startTime[1] + " / " + objectTrain[i].startTime[2]);
 		}
-		
-		   //=================Вывод объекта на экран который введёт пользователь
-		System.out.println("Введите номер поезда для вывода его на экран: ");
+		   //=================Р’С‹РІРѕРґ РѕР±СЉРµРєС‚Р° РЅР° СЌРєСЂР°РЅ РєРѕС‚РѕСЂС‹Р№ РІРІРµРґС‘С‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
+		System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРѕРµР·РґР° РґР»СЏ РІС‹РІРѕРґР° РµРіРѕ РЅР° СЌРєСЂР°РЅ: ");
 		int tempTN = in.nextInt();
 		int buf=0;
 		for(int i=0; i < objectTrain.length; i++) {
 			if(objectTrain[i].getTrainNumber()==tempTN) {
 			buf=1;
-			System.out.println("Пункт назначения " + objectTrain[i].getFinalDistination());
-			System.out.println("номер поезда: " + objectTrain[i].getTrainNumber());		
-			System.out.println("Время отправления: "+objectTrain[i].startTime[0]+" / " + objectTrain[i].startTime[1] + " / " + objectTrain[i].startTime[2]);
+			System.out.println("РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ " + objectTrain[i].getFinalDistination());
+			System.out.println("РЅРѕРјРµСЂ РїРѕРµР·РґР°: " + objectTrain[i].getTrainNumber());		
+			System.out.println("Р’СЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ: "+objectTrain[i].startTime[0]+" / " + objectTrain[i].startTime[1] + " / " + objectTrain[i].startTime[2]);
 			}
 		}
 		if(buf==0)
-			System.out.println("Поезд с таким номером не найден! ");
+			System.out.println("РџРѕРµР·Рґ СЃ С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј РЅРµ РЅР°Р№РґРµРЅ! ");
 		in.close();
-		
-		//=================Сортировка объекта по полям и если есть одинаковые элементы по времени 
-
+		//=================РЎРѕСЂС‚РёСЂРѕРІРєР° РѕР±СЉРµРєС‚Р° РїРѕ РїРѕР»СЏРј Рё РµСЃР»Рё РµСЃС‚СЊ РѕРґРёРЅР°РєРѕРІС‹Рµ СЌР»РµРјРµРЅС‚С‹ РїРѕ РІСЂРµРјРµРЅРё 
         isSorted = false;
         while(!isSorted) {
             isSorted = true;
             for(int i = 0; i < objectTrain.length - 1; i++) 
-            	
                if((objectTrain[i].getTrainNumber()==objectTrain[i + 1].getTrainNumber())&&(objectTrain[i].startTime[0]>objectTrain[i + 1].startTime[0])) {
             		isSorted = false;
             		objectTemp[0]=objectTrain[i];
@@ -94,21 +78,15 @@ public class Train {
 					objectTrain[i]=objectTrain[i + 1];
 					objectTrain[i + 1]=objectTemp[0];
             	}
-            
         }
-        
-        //=================Вывод объекта на экран
-        System.out.println("Сортировка объекта по полям и если есть одинаковые элементы по времени! ");
+        //=================Р’С‹РІРѕРґ РѕР±СЉРµРєС‚Р° РЅР° СЌРєСЂР°РЅ
+        System.out.println("РЎРѕСЂС‚РёСЂРѕРІРєР° РѕР±СЉРµРєС‚Р° РїРѕ РїРѕР»СЏРј Рё РµСЃР»Рё РµСЃС‚СЊ РѕРґРёРЅР°РєРѕРІС‹Рµ СЌР»РµРјРµРЅС‚С‹ РїРѕ РІСЂРµРјРµРЅРё! ");
 	      for(int i=0; i < objectTrain.length; i++) {
-			
-			System.out.println("Пункт назначения " + objectTrain[i].getFinalDistination());
-			System.out.println("номер поезда: " + objectTrain[i].getTrainNumber());		
-			System.out.println("Время отправления: "+objectTrain[i].startTime[0]+" / " + objectTrain[i].startTime[1] + " / " + objectTrain[i].startTime[2]);
-			
+			System.out.println("РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ " + objectTrain[i].getFinalDistination());
+			System.out.println("РЅРѕРјРµСЂ РїРѕРµР·РґР°: " + objectTrain[i].getTrainNumber());		
+			System.out.println("Р’СЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ: "+objectTrain[i].startTime[0]+" / " + objectTrain[i].startTime[1] + " / " + objectTrain[i].startTime[2]);
 		}
-		
 	}
-	
 	public String getFinalDistination() {
 		return finalDistination;
 	}
@@ -121,6 +99,4 @@ public class Train {
 	public void setTrainNumber(int trainNumber) {
 		this.trainNumber = trainNumber;
 	}
-	
-
 }

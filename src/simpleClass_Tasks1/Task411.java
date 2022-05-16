@@ -1,27 +1,26 @@
 package simpleClass_Tasks1;
-
- //предложение
+ //РїСЂРµРґР»РѕР¶РµРЅРёРµ
  class Phrase { 
-	//значение предложения
+	//Р·РЅР°С‡РµРЅРёРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ
     private String value="";
-    //метод добавления слова
+    //РјРµС‚РѕРґ РґРѕР±Р°РІР»РµРЅРёСЏ СЃР»РѕРІР°
     public void addValue(Word word) {
         value += " " + word.getValue();
     }
-    //метод получения значения
+    //РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ
     public String getValue() {
         return value;
     }
 }
- //слово
+ //СЃР»РѕРІРѕ
  class Word {
-	//значение слова
+	//Р·РЅР°С‡РµРЅРёРµ СЃР»РѕРІР°
     private String value;
-  //конструктор
+  //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     public Word(String value) {
         this.value = value;
     }
-  //метод получения значения
+  //РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ
     public String getValue() {
         return value;
     }
@@ -55,25 +54,18 @@ package simpleClass_Tasks1;
 	    }
 	}
 public class Task411 {
-
 	public static void main(String[] args) {
-		 Word word = new Word("Приветствие");
+		 Word word = new Word("РџСЂРёРІРµС‚СЃС‚РІРёРµ");
 	        Text text = new Text(word);
-
-	        Word word1 = new Word(" Привет ");
-	        Word word2 = new Word(" мир ");
-	        Word word3 = new Word(" программирования! ");
-
+	        Word word1 = new Word(" РџСЂРёРІРµС‚ ");
+	        Word word2 = new Word(" РјРёСЂ ");
+	        Word word3 = new Word(" РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ! ");
 	        Phrase phrase = new Phrase();
 	        phrase.addValue(word1);
 	        phrase.addValue(word2);
 	        phrase.addValue(word3);
-
 	        text.addBody(phrase);
-
 	        System.out.println("Head: "+text.getHeader());
 	        System.out.println("Body: "+text.getBody());
-
 	}
-
 }

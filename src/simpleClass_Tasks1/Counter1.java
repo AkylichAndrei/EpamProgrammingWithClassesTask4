@@ -7,7 +7,6 @@ public class Counter1 {
 	private int lowerValue;
 	private int presentValue;
 	Counter1(){
-		
 	}
 	Counter1(int uV, int pV, int lV){
 		setUpperValue(uV);
@@ -25,7 +24,7 @@ public class Counter1 {
 		}
 		}
 		else if(getPresentValue()==getUpperValue())
-			System.out.println("вы достигли верхней границцы дивапазона ");
+			System.out.println("РІС‹ РґРѕСЃС‚РёРіР»Рё РІРµСЂС…РЅРµР№ РіСЂР°РЅРёС†С†С‹ РґРёРІР°РїР°Р·РѕРЅР° ");
 	}
 	private void decrement() {
 		if(getPresentValue()>getLowerValue()) {
@@ -33,42 +32,37 @@ public class Counter1 {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		}
 			else if(getPresentValue()==getLowerValue())
-				System.out.println("вы достигли верхней границцы дивапазона ");
+				System.out.println("РІС‹ РґРѕСЃС‚РёРіР»Рё РІРµСЂС…РЅРµР№ РіСЂР°РЅРёС†С†С‹ РґРёРІР°РїР°Р·РѕРЅР° ");
 	}
 	private int pV() {
 		return getPresentValue();
 	}
-	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int uV,pV,lV;
 		Counter1 objectCounter = new Counter1();
 		Scanner in = new Scanner(System.in);
-		System.out.println("Введите верхнюю границу диапазона: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ РІРµСЂС…РЅСЋСЋ РіСЂР°РЅРёС†Сѓ РґРёР°РїР°Р·РѕРЅР°: ");
 		uV = in.nextInt();
-		System.out.println("Введите нижнюю границу диапазона: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ РЅРёР¶РЅСЋСЋ РіСЂР°РЅРёС†Сѓ РґРёР°РїР°Р·РѕРЅР°: ");
 		lV = in.nextInt();
-		System.out.println("Введите текущее состояние: ");
+		System.out.println("Р’РІРµРґРёС‚Рµ С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ: ");
 		pV = in.nextInt();
 		in.close();
 		objectCounter=new Counter1(uV,pV,lV);
-		//проведём тест запустим счётчик до 10 вверх и вниз
+		//РїСЂРѕРІРµРґС‘Рј С‚РµСЃС‚ Р·Р°РїСѓСЃС‚РёРј СЃС‡С‘С‚С‡РёРє РґРѕ 10 РІРІРµСЂС… Рё РІРЅРёР·
 		for(int i = 0;i < 10;i++) {
 		objectCounter.increment();
-		System.out.println("Текущее состояние "+ objectCounter.pV());
+		System.out.println("РўРµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ "+ objectCounter.pV());
 		}
 		
 		for(int i = 0;i < 10;i++) {
 			objectCounter.decrement();
-			System.out.println("Текущее состояние "+ objectCounter.pV());
+			System.out.println("РўРµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ "+ objectCounter.pV());
 			}
-		
-		
 	}
 	public int getUpperValue() {
 		return upperValue;

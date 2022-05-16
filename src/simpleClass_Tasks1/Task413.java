@@ -2,18 +2,17 @@ package simpleClass_Tasks1;
 
 import java.util.ArrayList;
 import java.util.List;
-
-//Создать объект класса Государство, используя классы Область, Район, Город.
-//Методы: 
-//вывести на консоль 
-//столицу, 
-//количество областей, 
-//площадь,
-//областные центры.
-class State{//страна
+//РЎРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° Р“РѕСЃСѓРґР°СЂСЃС‚РІРѕ, РёСЃРїРѕР»СЊР·СѓСЏ РєР»Р°СЃСЃС‹ РћР±Р»Р°СЃС‚СЊ, Р Р°Р№РѕРЅ, Р“РѕСЂРѕРґ.
+//РњРµС‚РѕРґС‹: 
+//РІС‹РІРµСЃС‚Рё РЅР° РєРѕРЅСЃРѕР»СЊ 
+//СЃС‚РѕР»РёС†Сѓ, 
+//РєРѕР»РёС‡РµСЃС‚РІРѕ РѕР±Р»Р°СЃС‚РµР№, 
+//РїР»РѕС‰Р°РґСЊ,
+//РѕР±Р»Р°СЃС‚РЅС‹Рµ С†РµРЅС‚СЂС‹.
+class State{//СЃС‚СЂР°РЅР°
 	private String name;
 	private double square;
-	// класс страна содержит список регионов 
+	// РєР»Р°СЃСЃ СЃС‚СЂР°РЅР° СЃРѕРґРµСЂР¶РёС‚ СЃРїРёСЃРѕРє СЂРµРіРёРѕРЅРѕРІ 
 	private List<Region> regions;
 	State(String name,double square, List<Region> regions){
 	this.setName(name);
@@ -23,31 +22,31 @@ class State{//страна
 	public List<Region> getRegions()  
 	   { 
 	       return regions; 
-	   } //вывести на консоль столицу
+	   } //РІС‹РІРµСЃС‚Рё РЅР° РєРѕРЅСЃРѕР»СЊ СЃС‚РѕР»РёС†Сѓ
 	public void printCapital() { 
 	        List<Town> towns;
 	        for(Region reg : regions) {
 	        	towns = reg.getTowns();
 	        	for (int i = 0; i < towns.size(); i++)
 	        		if(towns.get(i).isCapital()==true)
-	        	    System.out.println("Найдена столица это город "+towns.get(i).getName());
+	        	    System.out.println("РќР°Р№РґРµРЅР° СЃС‚РѕР»РёС†Р° СЌС‚Рѕ РіРѕСЂРѕРґ "+towns.get(i).getName());
 	        }
 		}
-	//количество областей
+	//РєРѕР»РёС‡РµСЃС‚РІРѕ РѕР±Р»Р°СЃС‚РµР№
 	public int printSummRegion() { 
         int j=0;
         for(int i = 0; i < regions.size(); i++) 
         	j++;
         return j;
 	}
-	//областные центры
+	//РѕР±Р»Р°СЃС‚РЅС‹Рµ С†РµРЅС‚СЂС‹
 	public void printRegionalCentrs() { 
         List<Town> towns;
         for(Region reg : regions) {
         	towns = reg.getTowns();
         	for (int i = 0; i < towns.size(); i++)
         		if(towns.get(i).isRegionalCenter()==true)
-        	    System.out.println("Найден областной центр "+towns.get(i).getName());
+        	    System.out.println("РќР°Р№РґРµРЅ РѕР±Р»Р°СЃС‚РЅРѕР№ С†РµРЅС‚СЂ "+towns.get(i).getName());
         }
 	}
 	public String getName() {
@@ -63,11 +62,11 @@ class State{//страна
 		this.square = square;
 	}
 }
-class Region{//область
+class Region{//РѕР±Р»Р°СЃС‚СЊ
 	private String name;
 	private double square;
-	private List<District> districts;// класс область содержит список районов 
-    private List<Town> towns;// класс область содержит список городов 
+	private List<District> districts;// РєР»Р°СЃСЃ РѕР±Р»Р°СЃС‚СЊ СЃРѕРґРµСЂР¶РёС‚ СЃРїРёСЃРѕРє СЂР°Р№РѕРЅРѕРІ 
+    private List<Town> towns;// РєР»Р°СЃСЃ РѕР±Р»Р°СЃС‚СЊ СЃРѕРґРµСЂР¶РёС‚ СЃРїРёСЃРѕРє РіРѕСЂРѕРґРѕРІ 
 	Region(String name, double square,List<District> districts,List<Town> towns){
 		this.setName(name);
 		this.setSquare(square);
@@ -95,14 +94,14 @@ class Region{//область
 		this.square = square;
 	}
 }
-class District{//район
+class District{//СЂР°Р№РѕРЅ
 	private String name;
 	private double square;
 	 District(String name, double square){
 		 this.setName(name);
 		 this.setSquare(square);
 	 }
-	// класс район содержит список городов 
+	// РєР»Р°СЃСЃ СЂР°Р№РѕРЅ СЃРѕРґРµСЂР¶РёС‚ СЃРїРёСЃРѕРє РіРѕСЂРѕРґРѕРІ 
 	public String getName() {
 		return name;
 	}
@@ -152,64 +151,60 @@ class Town{
 	public void setRegionalCenter(boolean regionalCenter) {
 		this.regionalCenter = regionalCenter;
 	}
-	
 }
 public class Task413 {
-
 	public static void main(String[] args) {
-		//Создадим города
-		Town objTown = new Town("Минск",true,true,35000.03);
-		Town objTown4 = new Town("Бобруйск",false,false,3120.12);
-		Town objTown5 = new Town("Заславль",false,false,17120.12);
-		//Создадим ещё города
-		Town objTown2 = new Town("Брест",false,true,2120.12);
-		Town objTown3 = new Town("Кобриб",false,false,2420.12);
-		Town objTown6 = new Town("Белоозёрск",false,false,16120.12);
-		//Создадим списки по районам городам
+		//РЎРѕР·РґР°РґРёРј РіРѕСЂРѕРґР°
+		Town objTown = new Town("РњРёРЅСЃРє",true,true,35000.03);
+		Town objTown4 = new Town("Р‘РѕР±СЂСѓР№СЃРє",false,false,3120.12);
+		Town objTown5 = new Town("Р—Р°СЃР»Р°РІР»СЊ",false,false,17120.12);
+		//РЎРѕР·РґР°РґРёРј РµС‰С‘ РіРѕСЂРѕРґР°
+		Town objTown2 = new Town("Р‘СЂРµСЃС‚",false,true,2120.12);
+		Town objTown3 = new Town("РљРѕР±СЂРёР±",false,false,2420.12);
+		Town objTown6 = new Town("Р‘РµР»РѕРѕР·С‘СЂСЃРє",false,false,16120.12);
+		//РЎРѕР·РґР°РґРёРј СЃРїРёСЃРєРё РїРѕ СЂР°Р№РѕРЅР°Рј РіРѕСЂРѕРґР°Рј
 		List<Town> listTown = new ArrayList<>();
 	    listTown.add(objTown);
 	    listTown.add(objTown4);
 	    listTown.add(objTown5);
-	  //Создадим списки по районам городам
+	  //РЎРѕР·РґР°РґРёРј СЃРїРёСЃРєРё РїРѕ СЂР°Р№РѕРЅР°Рј РіРѕСЂРѕРґР°Рј
 	  	List<Town> listTown2 = new ArrayList<>();
 	  	listTown2.add(objTown2);
 	  	listTown2.add(objTown3);
 	  	listTown2.add(objTown6);
-	  //Создадим районы
-	  	District objDistrict = new  District("Минский район",10000.30);
-	  	District objDistrict1 = new  District("Бобруйский район",10000.30);
-	  	District objDistrict2 = new  District("Заславский район",10000.30);
-	  	District objDistrict3 = new  District("Брестский район",5100.30);
-	  	District objDistrict4 = new  District("Кобринский район",5100.30);
-	  	District objDistrict5 = new  District("Белоозёрский район",5100.30);
-	  //Создадим списки по районам 
+	  //РЎРѕР·РґР°РґРёРј СЂР°Р№РѕРЅС‹
+	  	District objDistrict = new  District("РњРёРЅСЃРєРёР№ СЂР°Р№РѕРЅ",10000.30);
+	  	District objDistrict1 = new  District("Р‘РѕР±СЂСѓР№СЃРєРёР№ СЂР°Р№РѕРЅ",10000.30);
+	  	District objDistrict2 = new  District("Р—Р°СЃР»Р°РІСЃРєРёР№ СЂР°Р№РѕРЅ",10000.30);
+	  	District objDistrict3 = new  District("Р‘СЂРµСЃС‚СЃРєРёР№ СЂР°Р№РѕРЅ",5100.30);
+	  	District objDistrict4 = new  District("РљРѕР±СЂРёРЅСЃРєРёР№ СЂР°Р№РѕРЅ",5100.30);
+	  	District objDistrict5 = new  District("Р‘РµР»РѕРѕР·С‘СЂСЃРєРёР№ СЂР°Р№РѕРЅ",5100.30);
+	  //РЎРѕР·РґР°РґРёРј СЃРїРёСЃРєРё РїРѕ СЂР°Р№РѕРЅР°Рј 
 	  	List<District> listDistrict = new ArrayList<>();
 	  	listDistrict.add(objDistrict);
 	  	listDistrict.add(objDistrict1);
 	    listDistrict.add(objDistrict2);
-	  	  //Создадим списки по районам 
+	  	  //РЎРѕР·РґР°РґРёРј СЃРїРёСЃРєРё РїРѕ СЂР°Р№РѕРЅР°Рј 
 	  	List<District> listDistrict2 = new ArrayList<>();
 	  	listDistrict2.add(objDistrict3);
 	  	listDistrict2.add(objDistrict4);
 	  	listDistrict2.add(objDistrict5);
-	  	//cоздадим области
-	  	Region objRegion = new Region("Минская область",90000.15,listDistrict,listTown);
-	  	Region objRegion2 = new Region("Брестская область",83200.17,listDistrict2,listTown2);
-	    //Создадим спсок областей
+	  	//cРѕР·РґР°РґРёРј РѕР±Р»Р°СЃС‚Рё
+	  	Region objRegion = new Region("РњРёРЅСЃРєР°СЏ РѕР±Р»Р°СЃС‚СЊ",90000.15,listDistrict,listTown);
+	  	Region objRegion2 = new Region("Р‘СЂРµСЃС‚СЃРєР°СЏ РѕР±Р»Р°СЃС‚СЊ",83200.17,listDistrict2,listTown2);
+	    //РЎРѕР·РґР°РґРёРј СЃРїСЃРѕРє РѕР±Р»Р°СЃС‚РµР№
 	  	List<Region> listRegion = new ArrayList<>();
 	  	listRegion.add(objRegion);
 	  	listRegion.add(objRegion2);
-	  	
-	  	//Создадим страну
-	  	State objState = new State("Республика Беларусь",10000.12,listRegion);
-	  	System.out.println("=====Задание 1=====");
+	  	//РЎРѕР·РґР°РґРёРј СЃС‚СЂР°РЅСѓ
+	  	State objState = new State("Р РµСЃРїСѓР±Р»РёРєР° Р‘РµР»Р°СЂСѓСЃСЊ",10000.12,listRegion);
+	  	System.out.println("=====Р—Р°РґР°РЅРёРµ 1=====");
 	  	objState.printCapital();
-	  	System.out.println("=====Задание 2=====");
-	  	System.out.println("Количество областей "+objState.printSummRegion());
-	  	System.out.println("=====Задание 3=====");
-	  	System.out.println("Общая площадь: "+objState.getSquare()+" кв.кил.");
-	  	System.out.println("=====Задание 4=====");
+	  	System.out.println("=====Р—Р°РґР°РЅРёРµ 2=====");
+	  	System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РѕР±Р»Р°СЃС‚РµР№ "+objState.printSummRegion());
+	  	System.out.println("=====Р—Р°РґР°РЅРёРµ 3=====");
+	  	System.out.println("РћР±С‰Р°СЏ РїР»РѕС‰Р°РґСЊ: "+objState.getSquare()+" РєРІ.РєРёР».");
+	  	System.out.println("=====Р—Р°РґР°РЅРёРµ 4=====");
 	  	objState.printRegionalCentrs();
 	}
-
 }

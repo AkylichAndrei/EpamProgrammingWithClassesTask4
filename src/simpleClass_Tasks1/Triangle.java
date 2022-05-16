@@ -1,21 +1,18 @@
 package simpleClass_Tasks1;
 
-
-
 public class Triangle {
-	private int x1;//координаты, точка А
-	private int y1;//координаты, точка А
-	private int x2;//координаты, точка B
-	private int y2;//координаты, точка B
-	private int x3;//координаты, точка C
-	private int y3;//координаты, точка C
-	private double ab;//длинна стороны
-	private double ac;//длинна стороны
-	private double bc;//длинна стороны
-	public double s;//площадь
-	public double p;//периметр
+	private int x1;//РєРѕРѕСЂРґРёРЅР°С‚С‹, С‚РѕС‡РєР° Рђ
+	private int y1;//РєРѕРѕСЂРґРёРЅР°С‚С‹, С‚РѕС‡РєР° Рђ
+	private int x2;//РєРѕРѕСЂРґРёРЅР°С‚С‹, С‚РѕС‡РєР° B
+	private int y2;//РєРѕРѕСЂРґРёРЅР°С‚С‹, С‚РѕС‡РєР° B
+	private int x3;//РєРѕРѕСЂРґРёРЅР°С‚С‹, С‚РѕС‡РєР° C
+	private int y3;//РєРѕРѕСЂРґРёРЅР°С‚С‹, С‚РѕС‡РєР° C
+	private double ab;//РґР»РёРЅРЅР° СЃС‚РѕСЂРѕРЅС‹
+	private double ac;//РґР»РёРЅРЅР° СЃС‚РѕСЂРѕРЅС‹
+	private double bc;//РґР»РёРЅРЅР° СЃС‚РѕСЂРѕРЅС‹
+	public double s;//РїР»РѕС‰Р°РґСЊ
+	public double p;//РїРµСЂРёРјРµС‚СЂ
 	Triangle(){
-		
 	}
 	Triangle(int x1,int y1,int x2,int y2,int x3,int y3){
 		this.setX1(x1);
@@ -25,47 +22,47 @@ public class Triangle {
 		this.setX3(x3);
 		this.setY3(y3);
 	}
-	//найдём стороны  АB AC BC
+	//РЅР°Р№РґС‘Рј СЃС‚РѕСЂРѕРЅС‹  РђB AC BC
 	public void searchSide() {
 		this.setAb(Math.sqrt( (Math.pow(getX2()-getX1(), 2)) + (Math.pow(getY2()-getY1(), 2)) ));
 		this.setBc(Math.sqrt( (Math.pow(getX2()-getX3(), 2)) + (Math.pow(getY2()-getY3(), 2)) ));
 		this.setAc(Math.sqrt( (Math.pow(getX1()-getX3(), 2)) + (Math.pow(getY1()-getY3(), 2)) ));
-		System.out.println("Сторона АВ =  "+this.getAb());
-		System.out.println("Сторона ВС =  "+this.getBc());
-		System.out.println("Сторона АС =  "+this.getAc());
+		System.out.println("РЎС‚РѕСЂРѕРЅР° РђР’ =  "+this.getAb());
+		System.out.println("РЎС‚РѕСЂРѕРЅР° Р’РЎ =  "+this.getBc());
+		System.out.println("РЎС‚РѕСЂРѕРЅР° РђРЎ =  "+this.getAc());
 	}
-	//найдём периметр
+	//РЅР°Р№РґС‘Рј РїРµСЂРёРјРµС‚СЂ
 	public double searchP() {
 		return this.p=(this.getAb()+this.getAc()+this.getBc());
 	}
-	//найдём площадь
+	//РЅР°Р№РґС‘Рј РїР»РѕС‰Р°РґСЊ
 	public double searchS() {
 		return this.s=Math.sqrt(p*(p-this.getAb())*(p-this.getBc())*(p-this.getAc()));
 	}
-	//найдём точку пересечения
+	//РЅР°Р№РґС‘Рј С‚РѕС‡РєСѓ РїРµСЂРµСЃРµС‡РµРЅРёСЏ
 	public void searchD( ) {
 		double x0,y0;
 		x0=(getX1()+getX2()+getX3())/3;
 		y0=(getY1()+getY2()+getY3())/3;
-		System.out.println("Точка пересечения : D("+x0+","+y0+")");
+		System.out.println("РўРѕС‡РєР° РїРµСЂРµСЃРµС‡РµРЅРёСЏ : D("+x0+","+y0+")");
 	}
 	public static void main(String[] args) {
 		int x1,x2,x3,y1,y2,y3;
 		Triangle objectTriangle = new Triangle();
 		//Scanner in = new Scanner(System.in);
-		System.out.println("Введём введём координаты точки  X1 = -5 и Y1 = -2 ");
+		System.out.println("Р’РІРµРґС‘Рј РІРІРµРґС‘Рј РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё  X1 = -5 Рё Y1 = -2 ");
 		x1 = -5; y1=-2;
-		System.out.println("Введём введём координаты точки  X2 = 7 и Y2 = -7 ");
+		System.out.println("Р’РІРµРґС‘Рј РІРІРµРґС‘Рј РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё  X2 = 7 Рё Y2 = -7 ");
 		x2 = 7; y2=-7;
-		System.out.println("Введём введём координаты точки  X1 = 5 и Y1 = 7 ");
+		System.out.println("Р’РІРµРґС‘Рј РІРІРµРґС‘Рј РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё  X1 = 5 Рё Y1 = 7 ");
 		x3 = 5; y3=7;
 		//in.close();
-		//создадим триугольник
+		//СЃРѕР·РґР°РґРёРј С‚СЂРёСѓРіРѕР»СЊРЅРёРє
 		objectTriangle = new Triangle(x1,y1,x2,y2,x3,y3);
-		//найдём длинну сторон треугольника
+		//РЅР°Р№РґС‘Рј РґР»РёРЅРЅСѓ СЃС‚РѕСЂРѕРЅ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°
 		objectTriangle.searchSide();
-		System.out.println("Периметр триугольника: "+objectTriangle.searchP());
-		System.out.println("Площадь триугольника: "+objectTriangle.searchS());
+		System.out.println("РџРµСЂРёРјРµС‚СЂ С‚СЂРёСѓРіРѕР»СЊРЅРёРєР°: "+objectTriangle.searchP());
+		System.out.println("РџР»РѕС‰Р°РґСЊ С‚СЂРёСѓРіРѕР»СЊРЅРёРєР°: "+objectTriangle.searchS());
 		objectTriangle.searchD();
 	}
 	public double getAb() {
@@ -122,5 +119,4 @@ public class Triangle {
 	public void setY3(int y3) {
 		this.y3 = y3;
 	}
-
 }

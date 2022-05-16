@@ -4,21 +4,21 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
-//https://www.geeksforgeeks.org/association-composition-aggregation-java/ Ресурс
-//Класс Customer: id, фамилия, имя, отчество, адрес, номер кредитной карточки, номер банковского счета.
-//Найти и вывести:
-//a) список покупателей в алфавитном порядке;
-//b) список покупателей, у которых номер кредитной карточки находится в заданном интервале
+//https://www.geeksforgeeks.org/association-composition-aggregation-java/ Р РµСЃСѓСЂСЃ
+//РљР»Р°СЃСЃ Customer: id, С„Р°РјРёР»РёСЏ, РёРјСЏ, РѕС‚С‡РµСЃС‚РІРѕ, Р°РґСЂРµСЃ, РЅРѕРјРµСЂ РєСЂРµРґРёС‚РЅРѕР№ РєР°СЂС‚РѕС‡РєРё, РЅРѕРјРµСЂ Р±Р°РЅРєРѕРІСЃРєРѕРіРѕ СЃС‡РµС‚Р°.
+//РќР°Р№С‚Рё Рё РІС‹РІРµСЃС‚Рё:
+//a) СЃРїРёСЃРѕРє РїРѕРєСѓРїР°С‚РµР»РµР№ РІ Р°Р»С„Р°РІРёС‚РЅРѕРј РїРѕСЂСЏРґРєРµ;
+//b) СЃРїРёСЃРѕРє РїРѕРєСѓРїР°С‚РµР»РµР№, Сѓ РєРѕС‚РѕСЂС‹С… РЅРѕРјРµСЂ РєСЂРµРґРёС‚РЅРѕР№ РєР°СЂС‚РѕС‡РєРё РЅР°С…РѕРґРёС‚СЃСЏ РІ Р·Р°РґР°РЅРЅРѕРј РёРЅС‚РµСЂРІР°Р»Рµ
 
-	//==========Чек====================
-	 //агрегирующий класс чек 
-	 class Сheck{
+	//==========Р§РµРє====================
+	 //Р°РіСЂРµРіРёСЂСѓСЋС‰РёР№ РєР»Р°СЃСЃ С‡РµРє 
+	 class РЎheck{
 			private int checkNumber;
 			private String nameOfProduct;
 			private int price;
-			private int idCustomer;//cвязь с покупателем будем осуществлять через идентификационный номер
+			private int idCustomer;//cРІСЏР·СЊ СЃ РїРѕРєСѓРїР°С‚РµР»РµРј Р±СѓРґРµРј РѕСЃСѓС‰РµСЃС‚РІР»СЏС‚СЊ С‡РµСЂРµР· РёРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ
 			
-			Сheck(int cN, String nOP, int p, int iC){
+			РЎheck(int cN, String nOP, int p, int iC){
 				this.setCheckNumber(cN);
 				this.setNameOfProduct(nOP);
 				this.setPrice(p);
@@ -48,26 +48,21 @@ import java.util.Collections;
 			public void setIdCustomer(int idCustomer) {
 				this.idCustomer = idCustomer;
 			}
-		
-		
 		}
 	 
-	 public class Customer implements Comparable <Customer>{//добавляем возможность сравнивать объекты User{
-			
-			
-			//==========Покупатель====================
-			//агрегирующий класс содержит в себе другие классы
+	 public class Customer implements Comparable <Customer>{//РґРѕР±Р°РІР»СЏРµРј РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЃСЂР°РІРЅРёРІР°С‚СЊ РѕР±СЉРµРєС‚С‹ User{
+			//==========РџРѕРєСѓРїР°С‚РµР»СЊ====================
+			//Р°РіСЂРµРіРёСЂСѓСЋС‰РёР№ РєР»Р°СЃСЃ СЃРѕРґРµСЂР¶РёС‚ РІ СЃРµР±Рµ РґСЂСѓРіРёРµ РєР»Р°СЃСЃС‹
 			private int id; 
-			private String firstName; // Имя
-			private String middleName;// Отчество
-			private String lastName;  // Фамилия
+			private String firstName; // РРјСЏ
+			private String middleName;// РћС‚С‡РµСЃС‚РІРѕ
+			private String lastName;  // Р¤Р°РјРёР»РёСЏ
 			private String address; 
 			private long creditCardNumber; 
 			private int bankAccountNumber;
-			// класс покупатель содержит список чеков за покупки
-			private List<Сheck> cheks;
-			
-			Customer(int id, String fN,String mN,String lN, String adress, long cCN, int bAN, List<Сheck> cheks){
+			// РєР»Р°СЃСЃ РїРѕРєСѓРїР°С‚РµР»СЊ СЃРѕРґРµСЂР¶РёС‚ СЃРїРёСЃРѕРє С‡РµРєРѕРІ Р·Р° РїРѕРєСѓРїРєРё
+			private List<РЎheck> cheks;
+			Customer(int id, String fN,String mN,String lN, String adress, long cCN, int bAN, List<РЎheck> cheks){
 				this.setId(id);
 				this.setFirstName(fN);
 				this.setMiddleName(mN);
@@ -77,27 +72,22 @@ import java.util.Collections;
 				this.setBankAccountNumber(bAN);
 				this.cheks = cheks;
 			}
-			 public List<Сheck> getCheks()  
+			 public List<РЎheck> getCheks()  
 			    { 
 			        return cheks; 
 			    } 
 			   @Override
-			 //реализуем метод compareTo интерфейса Comparable
+			 //СЂРµР°Р»РёР·СѓРµРј РјРµС‚РѕРґ compareTo РёРЅС‚РµСЂС„РµР№СЃР° Comparable
 			     public int compareTo(Customer o) {
-
-				   
-			 //используем метод compareTo из класса String для сравнения имен
+			 //РёСЃРїРѕР»СЊР·СѓРµРј РјРµС‚РѕРґ compareTo РёР· РєР»Р°СЃСЃР° String РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ РёРјРµРЅ
 			         int result = this.firstName.compareTo(o.firstName);
-
-			 //если имена одинаковые -  сравниваем возраст,
-			// используя метод compareTo из класса String
-
+			 //РµСЃР»Рё РёРјРµРЅР° РѕРґРёРЅР°РєРѕРІС‹Рµ -  СЃСЂР°РІРЅРёРІР°РµРј РІРѕР·СЂР°СЃС‚,
+			// РёСЃРїРѕР»СЊР·СѓСЏ РјРµС‚РѕРґ compareTo РёР· РєР»Р°СЃСЃР° String
 			         if (result == 0) {
 			             result = this.middleName.compareTo(o.middleName);
 			         }
 			         return result;
 			     }
-			
 			 @Override
 			public String toString() {
 				String s="";
@@ -106,16 +96,15 @@ import java.util.Collections;
 			            s = s + cheks.get(i).getNameOfProduct()+" ";
 			        }
 					 return "{" +
-		            "Айди ='" + id + '\'' +
-		            ", Имя =" + firstName +
-		            ", Отчество ='" + middleName + '\'' +
-		            ", Фамилия ='" + lastName + '\'' +
-		            ", Адресс ='" + address + '\'' +
-		            ", Номер карточки='" + creditCardNumber + '\'' +
-		            ", Номер счёта ='" + bankAccountNumber + '\'' +
-		            ", Список покупок ='" + s  + '\'' +
+		            "РђР№РґРё ='" + id + '\'' +
+		            ", РРјСЏ =" + firstName +
+		            ", РћС‚С‡РµСЃС‚РІРѕ ='" + middleName + '\'' +
+		            ", Р¤Р°РјРёР»РёСЏ ='" + lastName + '\'' +
+		            ", РђРґСЂРµСЃСЃ ='" + address + '\'' +
+		            ", РќРѕРјРµСЂ РєР°СЂС‚РѕС‡РєРё='" + creditCardNumber + '\'' +
+		            ", РќРѕРјРµСЂ СЃС‡С‘С‚Р° ='" + bankAccountNumber + '\'' +
+		            ", РЎРїРёСЃРѕРє РїРѕРєСѓРїРѕРє ='" + s  + '\'' +
 		            '}';
-					
 			}
 		public int getId() {
 			return id;
@@ -160,65 +149,51 @@ import java.util.Collections;
 			this.bankAccountNumber = bankAccountNumber;
 		}
 	public static void main(String[] args) {
-		
-	//создаём чеки на покупку 
-		Сheck objCheck1 = new Сheck(10001,"  Porsche 718 Cayman",5_680_000,0);
-		Сheck objCheck2 = new Сheck(10002,"  Porsche 911 Carrera",7_226_000,0);
-		Сheck objCheck3 = new Сheck(10003,"  Porsche 911 Carrera Cabriolet",8_050_000,1);
-		Сheck objCheck4 = new Сheck(10004,"  Porsche 718 Boxster",5_609_000,2);
-		Сheck objCheck5 = new Сheck(10005,"  Porsche Panamera Sport Turismo",7_121_000,3);
-		Сheck objCheck6 = new Сheck(10006,"  Porsche 911 GT2 RS",19_245_000,4);
-		
-		//создаём списки чеков для каждго покупателя
-		 List <Сheck> zero_customer = new ArrayList<Сheck>(); 
+	//СЃРѕР·РґР°С‘Рј С‡РµРєРё РЅР° РїРѕРєСѓРїРєСѓ 
+		РЎheck objCheck1 = new РЎheck(10001,"  Porsche 718 Cayman",5_680_000,0);
+		РЎheck objCheck2 = new РЎheck(10002,"  Porsche 911 Carrera",7_226_000,0);
+		РЎheck objCheck3 = new РЎheck(10003,"  Porsche 911 Carrera Cabriolet",8_050_000,1);
+		РЎheck objCheck4 = new РЎheck(10004,"  Porsche 718 Boxster",5_609_000,2);
+		РЎheck objCheck5 = new РЎheck(10005,"  Porsche Panamera Sport Turismo",7_121_000,3);
+		РЎheck objCheck6 = new РЎheck(10006,"  Porsche 911 GT2 RS",19_245_000,4);
+		//СЃРѕР·РґР°С‘Рј СЃРїРёСЃРєРё С‡РµРєРѕРІ РґР»СЏ РєР°Р¶РґРіРѕ РїРѕРєСѓРїР°С‚РµР»СЏ
+		 List <РЎheck> zero_customer = new ArrayList<РЎheck>(); 
 		 zero_customer.add(objCheck1); 
 		 zero_customer.add(objCheck2);
-		 List <Сheck> one_customer = new ArrayList<Сheck>(); 
+		 List <РЎheck> one_customer = new ArrayList<РЎheck>(); 
 		  one_customer.add(objCheck3);
-		 List <Сheck> two_customer = new ArrayList<Сheck>(); 
+		 List <РЎheck> two_customer = new ArrayList<РЎheck>(); 
 		 two_customer.add(objCheck4);
-		 List <Сheck> three_customer = new ArrayList<Сheck>(); 
+		 List <РЎheck> three_customer = new ArrayList<РЎheck>(); 
 		 three_customer.add(objCheck5);
-		 List <Сheck> four_customer = new ArrayList<Сheck>(); 
+		 List <РЎheck> four_customer = new ArrayList<РЎheck>(); 
 		 four_customer.add(objCheck6);
-		 
-		 
-		//создаём покупателей и присваеваем им чеки покупок
-		Customer objectCustomer = new Customer(0,"Андрей","Викторович","Акулич","ул.Янковского 34-124",287834341,34124,zero_customer);
-		Customer objectCustomer1 = new Customer(1,"Сергей","Викторович","Бабулич","ул.Шарангович 37-125",927834341,14124,one_customer);
-		Customer objectCustomer2 = new Customer(2,"Павел","Викторович","Пампулич","ул.Горецкого 56-54",347834341,24124,two_customer);
-		Customer objectCustomer3 = new Customer(3,"Александр","Викторович","Куркулич","ул.Бурдейного 12-64",657834341,54124,three_customer);
-		Customer objectCustomer4 = new Customer(4,"Андрей","Алексеевич","Дикулич","ул.Программистов 65-124",117834341,74124,four_customer);
-
-		
+		//СЃРѕР·РґР°С‘Рј РїРѕРєСѓРїР°С‚РµР»РµР№ Рё РїСЂРёСЃРІР°РµРІР°РµРј РёРј С‡РµРєРё РїРѕРєСѓРїРѕРє
+		Customer objectCustomer = new Customer(0,"РђРЅРґСЂРµР№","Р’РёРєС‚РѕСЂРѕРІРёС‡","РђРєСѓР»РёС‡","СѓР».РЇРЅРєРѕРІСЃРєРѕРіРѕ 34-124",287834341,34124,zero_customer);
+		Customer objectCustomer1 = new Customer(1,"РЎРµСЂРіРµР№","Р’РёРєС‚РѕСЂРѕРІРёС‡","Р‘Р°Р±СѓР»РёС‡","СѓР».РЁР°СЂР°РЅРіРѕРІРёС‡ 37-125",927834341,14124,one_customer);
+		Customer objectCustomer2 = new Customer(2,"РџР°РІРµР»","Р’РёРєС‚РѕСЂРѕРІРёС‡","РџР°РјРїСѓР»РёС‡","СѓР».Р“РѕСЂРµС†РєРѕРіРѕ 56-54",347834341,24124,two_customer);
+		Customer objectCustomer3 = new Customer(3,"РђР»РµРєСЃР°РЅРґСЂ","Р’РёРєС‚РѕСЂРѕРІРёС‡","РљСѓСЂРєСѓР»РёС‡","СѓР».Р‘СѓСЂРґРµР№РЅРѕРіРѕ 12-64",657834341,54124,three_customer);
+		Customer objectCustomer4 = new Customer(4,"РђРЅРґСЂРµР№","РђР»РµРєСЃРµРµРІРёС‡","Р”РёРєСѓР»РёС‡","СѓР».РџСЂРѕРіСЂР°РјРјРёСЃС‚РѕРІ 65-124",117834341,74124,four_customer);
 		List<Customer> list = new ArrayList<>();
-
 		    list.add(objectCustomer);
 		    list.add(objectCustomer1);
 		    list.add(objectCustomer2);
 		    list.add(objectCustomer3);
 		    list.add(objectCustomer4);
-		    System.out.println("-------до сортировки --------");
+		    System.out.println("-------РґРѕ СЃРѕСЂС‚РёСЂРѕРІРєРё --------");
 		    for (Customer u : list) {
-		    	
 		        System.out.println(u);
 		    }
-		    System.out.println("-------после сортировки -----");
+		    System.out.println("-------РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё -----");
 		    Collections.sort(list);
 		    for (Customer u : list) {
-		    	
 		        System.out.println(u);
-
 		    }
-		    System.out.println("-------диапазон карточки от 0 до 347834342-----");
+		    System.out.println("-------РґРёР°РїР°Р·РѕРЅ РєР°СЂС‚РѕС‡РєРё РѕС‚ 0 РґРѕ 347834342-----");
 	
 		    for (Customer u : list) {
 		    	if(u.getCreditCardNumber() > 0 && u.getCreditCardNumber() < 347834342)
 		        System.out.println(u);
 		    }
-		    
 	}
-	
-	
-
 }
